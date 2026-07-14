@@ -54,7 +54,7 @@ export function Header() {
               </div>
             )}
           </div>
-          <a href="/#tese" className="text-ink-muted hover:text-ink transition">{t.nav.about}</a>
+          <Link to="/sobre" className="text-ink-muted hover:text-ink transition" activeProps={{ className: "text-ink" }}>{t.nav.about}</Link>
           <a href="/#contato" className="text-ink-muted hover:text-ink transition">{t.nav.contact}</a>
           <LangToggle lang={lang} setLang={setLang} />
         </nav>
@@ -89,9 +89,10 @@ export function Header() {
               <span>{t.nav[p.key]}</span>
             </Link>
           ))}
-          <a href="/#tese" className="block text-ink-muted pt-3" onClick={() => setMobile(false)}>
+          <Link to="/sobre" className="block text-ink-muted pt-3" onClick={() => setMobile(false)}>
             {t.nav.about}
-          </a>
+          </Link>
+
           <a href="/#contato" className="block text-ink-muted" onClick={() => setMobile(false)}>
             {t.nav.contact}
           </a>

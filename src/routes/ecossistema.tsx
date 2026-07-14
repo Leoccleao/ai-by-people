@@ -37,7 +37,7 @@ function Page() {
       <ProgramHero eyebrow={p.eyebrow} headline={p.headline} sub={p.sub} />
 
       {/* Argument */}
-      <Section className="py-32 md:py-40 border-t border-rule">
+      <Section className="py-16 md:py-20 border-t border-rule">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <Reveal>
@@ -61,7 +61,7 @@ function Page() {
 
       {/* Offers */}
       <section className="border-t border-rule bg-paper-elev">
-        <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <SectionHead kicker={p.offerKicker} title={p.offerTitle} />
           <NumberedGrid items={p.offers} cols={3} />
         </div>
@@ -69,7 +69,7 @@ function Page() {
 
       {/* Track record */}
       <section className="border-t border-rule bg-ink text-paper">
-        <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <Reveal>
             <div className="text-[11px] uppercase tracking-[0.3em] text-accent font-mono mb-6">
               {p.trackKicker}
@@ -87,7 +87,7 @@ function Page() {
       </section>
 
       {/* Engage */}
-      <Section className="py-32 md:py-40 border-t border-rule">
+      <Section className="py-16 md:py-20 border-t border-rule">
         <SectionHead kicker={p.engageKicker} title={p.engageTitle} />
         <NumberedGrid items={p.engage} cols={3} />
       </Section>

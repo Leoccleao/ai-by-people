@@ -33,7 +33,7 @@ function Page() {
 
       {/* Argument */}
       <section className="border-y border-rule bg-paper-elev">
-        <div className="mx-auto max-w-4xl px-6 py-32 md:py-40">
+        <div className="mx-auto max-w-4xl px-6 py-16 md:py-20">
           <Reveal>
             <div className="text-[11px] uppercase tracking-[0.3em] text-accent font-mono mb-14 text-center">
               {p.argKicker}
@@ -58,7 +58,7 @@ function Page() {
       </section>
 
       {/* What */}
-      <Section className="py-32 md:py-40">
+      <Section className="py-16 md:py-20">
         <SectionHead kicker={p.whatKicker} title={p.whatTitle} />
         <NumberedGrid items={p.what} cols={2} />
         <Reveal delay={200}>
@@ -71,7 +71,7 @@ function Page() {
       </Section>
 
       {/* Who */}
-      <Section className="py-24 md:py-32 border-t border-rule">
+      <Section className="py-14 md:py-16 border-t border-rule">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <Reveal>
@@ -101,7 +101,7 @@ function Page() {
       </Section>
 
       {/* Status */}
-      <Section className="py-24 md:py-32 border-t border-rule">
+      <Section className="py-14 md:py-16 border-t border-rule">
         <Reveal>
           <div className="text-[11px] uppercase tracking-[0.3em] text-accent font-mono mb-6">
             {p.statusKicker}

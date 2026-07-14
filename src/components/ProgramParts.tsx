@@ -14,7 +14,7 @@ export function ProgramHero({
   note?: string;
 }) {
   return (
-    <div className="mx-auto max-w-6xl px-6 pt-24 md:pt-32 pb-24 md:pb-32">
+    <div className="mx-auto max-w-6xl px-6 pt-14 md:pt-16 pb-14 md:pb-16">
       <Reveal>
         <div className="text-[11px] uppercase tracking-[0.3em] text-accent font-mono mb-10">
           {eyebrow}
@@ -125,7 +125,7 @@ export function StatsRow({ items }: { items: { n: string; l: string }[] }) {
 /** CTA anchor to /#contato. */
 export function ProgramCTA({ label }: { label: string }) {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-32 md:py-40 text-center border-t border-rule">
+    <div className="mx-auto max-w-6xl px-6 py-16 md:py-20 text-center border-t border-rule">
       <Reveal>
         <p className="font-serif text-[clamp(1.75rem,3.5vw,2.75rem)] leading-tight text-ink max-w-3xl mx-auto">
           {label}

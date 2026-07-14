@@ -35,7 +35,7 @@ function Page() {
 
       {/* Why */}
       <section className="border-y border-rule bg-paper-elev">
-        <div className="mx-auto max-w-4xl px-6 py-32 md:py-40">
+        <div className="mx-auto max-w-4xl px-6 py-16 md:py-20">
           <Reveal>
             <div className="text-[11px] uppercase tracking-[0.3em] text-accent font-mono mb-10 text-center">
               {p.whyKicker}
@@ -50,20 +50,20 @@ function Page() {
       </section>
 
       {/* What we measure */}
-      <Section className="py-32 md:py-40">
+      <Section className="py-16 md:py-20">
         <SectionHead kicker={p.whatKicker} title={p.whatTitle} />
         <NumberedGrid items={p.what} cols={2} />
       </Section>
 
       {/* Methodology */}
-      <Section className="py-24 md:py-32 border-t border-rule">
+      <Section className="py-14 md:py-16 border-t border-rule">
         <SectionHead kicker={p.methodKicker} title={p.methodTitle} />
         <NumberedGrid items={p.method} cols={3} />
       </Section>
 
       {/* Commitment + status (dark) */}
       <section className="border-t border-rule bg-ink text-paper">
-        <div className="mx-auto max-w-6xl px-6 py-32 md:py-40 grid md:grid-cols-2 gap-16">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20 grid md:grid-cols-2 gap-16">
           <div>
             <Reveal>
               <div className="text-[11px] uppercase tracking-[0.3em] text-accent font-mono mb-6">
@@ -106,7 +106,7 @@ function IndexCapture() {
 
   return (
     <section className="border-t border-rule">
-      <div className="mx-auto max-w-4xl px-6 py-32 md:py-40 text-center">
+      <div className="mx-auto max-w-4xl px-6 py-16 md:py-20 text-center">
         <Reveal>
           <h2 className="font-serif text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-ink max-w-3xl mx-auto">
             {p.captureTitle}

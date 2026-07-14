@@ -29,7 +29,7 @@ function Home() {
   return (
     <PageShell>
       {/* HERO */}
-      <Section className="pt-24 md:pt-32 pb-24 md:pb-40">
+      <Section className="pt-14 md:pt-16 pb-14 md:pb-40">
         <Reveal>
           <div className="text-[11px] uppercase tracking-[0.3em] text-accent font-mono mb-10">
             {t.common.nonprofitEyebrow}
@@ -65,7 +65,7 @@ function Home() {
 
       {/* ETYMOLOGY */}
       <section className="border-y border-rule bg-paper-elev">
-        <div className="mx-auto max-w-5xl px-6 py-32 md:py-40 text-center">
+        <div className="mx-auto max-w-5xl px-6 py-16 md:py-20 text-center">
           <Reveal>
             <div className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-14">
               Ars · Facere
@@ -89,7 +89,7 @@ function Home() {
       </section>
 
       {/* PROBLEM */}
-      <Section className="py-32 md:py-40">
+      <Section className="py-16 md:py-20">
         <Reveal>
           <Kicker>{t.home.problemKicker}</Kicker>
         </Reveal>
@@ -113,7 +113,7 @@ function Home() {
 
       {/* THESIS + CONTRAST */}
       <section id="tese" className="border-t border-rule bg-ink text-paper">
-        <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <Reveal>
             <div className="text-[11px] uppercase tracking-[0.3em] text-accent font-mono mb-8">
               {t.home.thesisKicker}
@@ -165,7 +165,7 @@ function Home() {
       </section>
 
       {/* PROGRAMS */}
-      <Section id="programas" className="py-32 md:py-40">
+      <Section id="programas" className="py-16 md:py-20">
         <Reveal>
           <Kicker>{t.home.programsKicker}</Kicker>
         </Reveal>
@@ -205,7 +205,7 @@ function Home() {
 
       {/* IMPACT */}
       <section className="border-y border-rule">
-        <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <Reveal>
             <Kicker>{t.home.impactKicker}</Kicker>
           </Reveal>
@@ -233,7 +233,7 @@ function Home() {
       </section>
 
       {/* MANIFESTO CLOSER */}
-      <section className="py-40 md:py-56">
+      <section className="py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <Reveal>
             <p className="font-serif text-[clamp(1.75rem,4.5vw,3.5rem)] leading-[1.2] text-ink">

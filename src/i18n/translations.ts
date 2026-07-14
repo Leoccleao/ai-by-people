@@ -49,7 +49,7 @@ export const translations = {
         },
         {
           t: "A escola foi redesenhada sem ser avisada.",
-          b: "Escolas banniram o ChatGPT, depois desistiram. Nem banir nem ignorar é estratégia. A prova de sempre não descreve mais o aluno que a fez.",
+          b: "Escolas baniram o ChatGPT, depois desistiram. Nem banir nem ignorar é estratégia. A prova de sempre não descreve mais o aluno que a fez.",
         },
         {
           t: "A resposta padrão foi conteúdo.",

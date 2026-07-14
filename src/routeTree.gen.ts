@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SoberaniaRouteImport } from './routes/soberania'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndiceRouteImport } from './routes/indice'
 import { Route as FormadoresRouteImport } from './routes/formadores'
 import { Route as EscolasRouteImport } from './routes/escolas'
@@ -20,6 +21,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const SoberaniaRoute = SoberaniaRouteImport.update({
   id: '/soberania',
   path: '/soberania',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndiceRoute = IndiceRouteImport.update({
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/escolas': typeof EscolasRoute
   '/formadores': typeof FormadoresRoute
   '/indice': typeof IndiceRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/escolas': typeof EscolasRoute
   '/formadores': typeof FormadoresRoute
   '/indice': typeof IndiceRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/escolas': typeof EscolasRoute
   '/formadores': typeof FormadoresRoute
   '/indice': typeof IndiceRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/escolas'
     | '/formadores'
     | '/indice'
+    | '/sitemap.xml'
     | '/soberania'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/escolas'
     | '/formadores'
     | '/indice'
+    | '/sitemap.xml'
     | '/soberania'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/escolas'
     | '/formadores'
     | '/indice'
+    | '/sitemap.xml'
     | '/soberania'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   EscolasRoute: typeof EscolasRoute
   FormadoresRoute: typeof FormadoresRoute
   IndiceRoute: typeof IndiceRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SoberaniaRoute: typeof SoberaniaRoute
 }
 
@@ -128,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/soberania'
       fullPath: '/soberania'
       preLoaderRoute: typeof SoberaniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/indice': {
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   EscolasRoute: EscolasRoute,
   FormadoresRoute: FormadoresRoute,
   IndiceRoute: IndiceRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SoberaniaRoute: SoberaniaRoute,
 }
 export const routeTree = rootRouteImport

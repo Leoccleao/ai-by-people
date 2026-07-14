@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SoberaniaRouteImport } from './routes/soberania'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndiceRouteImport } from './routes/indice'
@@ -18,6 +19,11 @@ import { Route as EcossistemaRouteImport } from './routes/ecossistema'
 import { Route as CorporativoRouteImport } from './routes/corporativo'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SoberaniaRoute = SoberaniaRouteImport.update({
   id: '/soberania',
   path: '/soberania',
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/indice': typeof IndiceRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
+  '/sobre': typeof SobreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/indice': typeof IndiceRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
+  '/sobre': typeof SobreRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/indice': typeof IndiceRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
+  '/sobre': typeof SobreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/indice'
     | '/sitemap.xml'
     | '/soberania'
+    | '/sobre'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/indice'
     | '/sitemap.xml'
     | '/soberania'
+    | '/sobre'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/indice'
     | '/sitemap.xml'
     | '/soberania'
+    | '/sobre'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,10 +144,18 @@ export interface RootRouteChildren {
   IndiceRoute: typeof IndiceRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SoberaniaRoute: typeof SoberaniaRoute
+  SobreRoute: typeof SobreRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/soberania': {
       id: '/soberania'
       path: '/soberania'
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndiceRoute: IndiceRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SoberaniaRoute: SoberaniaRoute,
+  SobreRoute: SobreRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

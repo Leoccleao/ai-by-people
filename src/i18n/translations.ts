@@ -383,6 +383,151 @@ export const translations = {
       body:
         "This page is being written. Meanwhile, email contato@aibypeople.org and tell us what you want to solve.",
     },
+    pages: {
+      corporate: {
+        eyebrow: "Corporate Program · The engine that funds the NGO",
+        headline: "Your team knows it's falling behind. It just can't find the time to actually build something.",
+        sub: "A 1–2 day in-person immersion built around a real use case from your team. It produces a working prototype — and a team able to maintain and evolve it without outside help.",
+        fundingNote:
+          "This is the only paid program at AI by People. Its revenue funds Sovereignty, Schools, Train the Trainers and the Index.",
+        realityKicker: "The reality in most companies",
+        realityTitle: "Four things we hear in almost every diagnostic.",
+        reality: [
+          { t: "No time for online courses", b: "Busy executives and operators won't marathon 40 hours of on-demand video. They need to learn while doing real work." },
+          { t: "They don't know what's possible", b: "Without practical experience, leaders can't tell a chatbot trick from something that replaces an entire workflow." },
+          { t: "There are enthusiasts, but isolated", b: "Almost every team has one or two champions experimenting on their own. Their work rarely scales." },
+          { t: "Generic training doesn't stick", b: "Off-the-shelf workshops teach prompts, not solutions. A week later, nothing changed in the routine." },
+        ],
+        phasesKicker: "How it works",
+        phasesTitle: "Three phases. One outcome.",
+        phases: [
+          {
+            t: "Diagnostic",
+            b: "Up to three online meetings. We map how the team already uses AI, identify internal champions, and prioritize the highest-leverage use cases.",
+            deliverables: [
+              "stakeholder interviews",
+              "champion identification",
+              "shortlist of use cases",
+              "maturity diagnostic",
+            ],
+          },
+          {
+            t: "Workshop",
+            b: "A 1–2 day in-person session, senior facilitator, small group, real data. Three blocks in the day: calibration (leveling and scope review) → hands-on (the team starts building with real data) → iteration and robustness (refinement, edge cases, testing and documentation).",
+            deliverables: [
+              "custom curriculum",
+              "real use case and data",
+              "working prototype",
+            ],
+          },
+          {
+            t: "Showcase",
+            b: "The team presents to leadership themselves: what they built, what it unlocks, and the next steps.",
+            deliverables: ["executive presentation", "roadmap to scale"],
+          },
+        ],
+        stats: [
+          { n: "1 day", l: "on-site" },
+          { n: "10", l: "participants max" },
+          { n: "100%", l: "built around your real case" },
+          { n: "1", l: "working prototype" },
+        ],
+        callout:
+          "This is a training program. It is not a development service. Although the workshop almost always ships a functional artifact tied to the team's real workflow, our commitment is the transfer of capability. The team leaves prepared to customize, maintain and evolve.",
+        casesKicker: "Real cases",
+        casesTitle: "Anonymized, but true.",
+        cases: [
+          {
+            t: "Finance back-office automation",
+            items: [
+              "automatic extraction of commercial terms from PDF contracts",
+              "monthly billing control consolidating ERP, spreadsheets and email",
+              "identification of what blocks each invoice",
+              "alerts for unbilled clients",
+              "control dashboard",
+            ],
+          },
+          {
+            t: "Court ruling analysis",
+            items: [
+              "structured base of rulings indexed by judge, topic, court and outcome",
+              "conversational agent for natural-language search, with sources and citations",
+              "identification of recurring arguments and each judge's typical position",
+              "suggestion of argumentative paths",
+            ],
+          },
+        ],
+        formatsKicker: "Formats",
+        formatsTitle: "Two ways in.",
+        formats: [
+          { t: "In company", b: "Customized, at your office, with your data. One real case, one team, one prototype." },
+          { t: "Open enrollment", b: "In-person immersion for senior professionals from across the market. Small cohorts, periodic dates." },
+        ],
+        cta: "Request a proposal",
+      },
+      ecosystem: {
+        eyebrow: "Ecosystem Program · For technology companies",
+        headline: "A platform is worth nothing without the people building on top of it.",
+        sub: "We build and organize developer ecosystems. Community, champions, events and real adoption — not vanity metrics.",
+        argKicker: "The argument",
+        argTitle: "Signup is easy to measure. Adoption is hard to fake.",
+        argBody:
+          "Every technology company knows how to measure signups. Few know how to measure who actually built something that works. Documentation does not become integration. A launch does not become adoption. Between the platform and the developer there is a distance that only people can cross — by organizing community, training champions and putting developers to actually build.",
+        offerKicker: "What we do",
+        offerTitle: "Five fronts that work together.",
+        offers: [
+          { t: "Community architecture", b: "Build and operate the developer community around the platform. From scratch, or by taking over a stagnant community." },
+          { t: "Champions program", b: "Identify, train and activate the developers who already evangelize the platform, and give them structure to scale." },
+          { t: "Event acceleration", b: "Registrations and quality attendance for launches, hackathons and developer conferences." },
+          { t: "Adoption engineering", b: "Turn documentation and launches into hands-on workshops that produce working integrations, not just signups." },
+          { t: "Ecosystem intelligence", b: "Map who is building what, where friction lives, and what the ecosystem needs next." },
+        ],
+        trackKicker: "Track record",
+        trackTitle: "Where we've already operated.",
+        trackBody:
+          "We've organized a developer community from scratch and accelerated registrations for the Brazilian event of one of the world's largest AI platforms. We know where the ecosystem gets stuck — because we've been inside it.",
+        engageKicker: "How we engage",
+        engageTitle: "Three types of engagement.",
+        engage: [
+          { t: "Ecosystem diagnostic", b: "A portrait of the current state: who's building, what's stuck, where the leverage is." },
+          { t: "Activation program (3 to 6 months)", b: "A clear front with goals and a dedicated team. Champions, event, adoption — chosen together." },
+          { t: "Ongoing community operation", b: "We run the community day to day. Cadence, content, relationships and reading of the ecosystem." },
+        ],
+        cta: "Let's talk about your ecosystem",
+      },
+      sovereignty: {
+        eyebrow: "Sovereignty Program · Free of charge",
+        headline: "A country that only consumes AI built elsewhere is renting its own future.",
+        sub: "Deep technical formation, free of charge, for Brazilian professionals. This is not about building a national model. It's about building the people who would know how.",
+        manifestoKicker: "The argument",
+        manifesto: [
+          "Technological sovereignty is not a datacenter. It is not a model with a flag. It is the installed capacity of a people to understand, build, audit and adapt the technology that organizes their life.",
+          "A country can import chips. It can import models. It cannot import judgment. On the day the decision gets hard — what to automate, what to audit, what to refuse — the answer will depend on how many people inside actually understand how the thing works.",
+          "Today that number is too small. And it is not for lack of talent. It is for lack of access: frontier formation happens in English, in closed circles, inside companies that are not here.",
+          "That is why this program is free, and always will be.",
+        ],
+        whatKicker: "What we do",
+        whatTitle: "Deep formation, at no cost.",
+        what: [
+          { t: "Free cohorts", b: "Deep technical formation, open and free for those selected." },
+          { t: "Build, don't watch", b: "The focus is doing real work, in the same method we use with companies." },
+          { t: "Frontier curriculum", b: "At the level of what the best companies in the world practice today." },
+          { t: "A network that forms a network", b: "A growing community of people able to build at that level — and to train the next ones." },
+        ],
+        whoKicker: "Who can join",
+        whoTitle: "Capability and commitment, not a diploma.",
+        whoBody:
+          "Brazilian technical professionals, selected by capability and commitment — not by diploma or pedigree.",
+        supportKicker: "How to support",
+        supportTitle: "Three paths.",
+        support: [
+          { t: "Donate", b: "Donations fund free cohorts. Every cent goes to scholarships, facilitators and infrastructure." },
+          { t: "Partner with us", b: "Companies and institutions willing to sponsor cohorts or open formation in their regions." },
+          { t: "Volunteer as a facilitator", b: "Senior professionals willing to give a few days a year to train the next generation." },
+        ],
+        cta: "I want to support",
+      },
+    },
   },
 };
 

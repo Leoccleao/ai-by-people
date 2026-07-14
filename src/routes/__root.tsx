@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -19,7 +20,7 @@ function NotFoundComponent() {
       <div className="max-w-md text-center">
         <h1 className="font-serif text-7xl text-ink">404</h1>
         <h2 className="mt-4 font-serif text-2xl text-ink">Página não encontrada</h2>
-        <p className="mt-3 text-sm text-ink/60">
+        <p className="mt-3 text-sm text-ink-muted">
           A página que você procura não existe ou foi movida.
         </p>
         <div className="mt-8">
@@ -46,9 +47,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-paper px-4">
       <div className="max-w-md text-center">
         <h1 className="font-serif text-2xl text-ink">Esta página não carregou</h1>
-        <p className="mt-3 text-sm text-ink/60">
-          Algo saiu do trilho. Tente recarregar ou volte ao início.
-        </p>
+        <p className="mt-3 text-sm text-ink-muted">Algo saiu do trilho. Tente recarregar ou volte ao início.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <button
             onClick={() => { router.invalidate(); reset(); }}
@@ -56,10 +55,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Tentar de novo
           </button>
-          <a
-            href="/"
-            className="border border-rule px-6 py-3 text-sm uppercase tracking-widest hover:border-ink transition"
-          >
+          <a href="/" className="border border-rule px-6 py-3 text-sm uppercase tracking-widest hover:border-ink transition">
             Início
           </a>
         </div>
@@ -77,13 +73,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Organização sem fins lucrativos que forma pessoas capazes de construir com IA — não de apenas consumir. Programas para empresas, escolas, universidades e o ecossistema de desenvolvedores.",
+          "Organização sem fins lucrativos que desenvolve pessoas num mundo em que a IA está redesenhando o trabalho e a educação. Não com conteúdo — com trabalho real.",
       },
       { name: "author", content: "AI by People" },
-      { property: "og:title", content: "AI by People — IA feita por pessoas" },
-      { property: "og:description", content: "Formamos pessoas capazes de construir com IA — não de apenas assistir." },
-      { property: "og:type", content: "website" },
       { property: "og:site_name", content: "AI by People" },
+      { property: "og:type", content: "website" },
+      { property: "og:title", content: "AI by People — IA feita por pessoas" },
+      {
+        property: "og:description",
+        content: "Formamos pessoas capazes de construir com IA — não de apenas assistir.",
+      },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -93,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap",
       },
     ],
   }),
@@ -123,6 +122,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
         <Outlet />
+        <Toaster position="bottom-center" toastOptions={{ style: { fontFamily: "Inter, sans-serif" } }} />
       </I18nProvider>
     </QueryClientProvider>
   );

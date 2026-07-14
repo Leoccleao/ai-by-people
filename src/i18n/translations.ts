@@ -504,6 +504,6 @@ export const translations = {
       note: "The Corporate program funds the free programs.",
     },
   },
-} as const;
+};
 
 export type Translations = typeof translations.pt;

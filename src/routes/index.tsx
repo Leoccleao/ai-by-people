@@ -65,28 +65,29 @@ function Home() {
 
       {/* ETYMOLOGY */}
       <section className="border-y border-rule bg-paper-elev">
-        <div className="mx-auto max-w-5xl px-6 py-16 md:py-20 text-center">
+        <div className="mx-auto max-w-5xl px-6 py-14 md:py-20 text-center">
           <Reveal>
-            <div className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-14">
+            <div className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-6">
               Ars · Facere
             </div>
           </Reveal>
-          <Reveal delay={120}>
-            <div className="font-serif text-[clamp(2rem,4.5vw,3.75rem)] leading-[1.05] text-ink mb-14">
+          <Reveal delay={80}>
+            <div className="font-serif text-[clamp(1.75rem,4vw,3.25rem)] leading-[1.05] text-ink mb-8">
               <span className="text-accent italic">ars</span>
-              <span className="text-ink-muted mx-4 md:mx-8">+</span>
+              <span className="text-ink-muted mx-4 md:mx-6">+</span>
               <span className="text-accent italic">facere</span>
-              <span className="text-ink-muted mx-4 md:mx-8">→</span>
+              <span className="text-ink-muted mx-4 md:mx-6">→</span>
               <span className="italic">artificialis</span>
             </div>
           </Reveal>
-          <Reveal delay={220}>
-            <p className="font-serif text-[clamp(1.35rem,2.6vw,2.25rem)] leading-[1.35] text-ink max-w-[42ch] mx-auto italic">
+          <Reveal delay={160}>
+            <p className="font-serif text-[clamp(1.2rem,2.2vw,1.85rem)] leading-[1.4] text-ink max-w-[44ch] mx-auto italic">
               {t.home.etymBody}
             </p>
           </Reveal>
         </div>
       </section>
+
 
       {/* PROBLEM */}
       <Section className="py-16 md:py-20">
@@ -98,7 +99,7 @@ function Home() {
             {t.home.problemTitle}
           </h2>
         </Reveal>
-        <div className="mt-20 grid gap-x-12 gap-y-14 md:grid-cols-3">
+        <div className="mt-12 grid gap-x-12 gap-y-10 grid-cols-1 md:grid-cols-3">
           {t.home.problems.map((p, i) => (
             <Reveal key={i} delay={i * 100}>
               <div className="border-t-2 border-ink pt-6">

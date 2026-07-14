@@ -24,12 +24,12 @@
 }
 
 :root {
-  --paper: oklch(0.978 0.008 85);
-  --paper-elev: oklch(0.965 0.01 85);
-  --ink: oklch(0.22 0.012 60);
-  --ink-muted: oklch(0.45 0.012 60);
-  --accent: oklch(0.48 0.14 40); /* burnt terracotta */
-  --rule: oklch(0.88 0.012 70);
+  --paper: #FAF8F5;
+  --paper-elev: #F3EFE8;
+  --ink: #1A1815;
+  --ink-muted: #6B6559;
+  --accent: #1B3A5C;
+  --rule: #E0DAD0;
   --radius: 0.25rem;
 }
 

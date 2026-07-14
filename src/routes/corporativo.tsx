@@ -39,14 +39,14 @@ function Page() {
       <ProgramHero eyebrow={p.eyebrow} headline={p.headline} sub={p.sub} note={p.fundingNote} />
 
       {/* Reality */}
-      <Section className="py-32 md:py-40 border-t border-rule">
+      <Section className="py-16 md:py-20 border-t border-rule">
         <SectionHead kicker={p.realityKicker} title={p.realityTitle} />
         <NumberedGrid items={p.reality} cols={2} />
       </Section>
 
       {/* Phases */}
       <section className="border-t border-rule bg-paper-elev">
-        <div className="mx-auto max-w-6xl px-6 py-32 md:py-40">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <SectionHead kicker={p.phasesKicker} title={p.phasesTitle} />
           <div className="mt-16 space-y-px bg-rule border border-rule">
             {p.phases.map((ph, i) => (
@@ -85,12 +85,12 @@ function Page() {
       </section>
 
       {/* Callout */}
-      <Section className="py-32 md:py-40 border-t border-rule">
+      <Section className="py-16 md:py-20 border-t border-rule">
         <Callout>{p.callout}</Callout>
       </Section>
 
       {/* Cases */}
-      <Section className="py-32 md:py-40 border-t border-rule">
+      <Section className="py-16 md:py-20 border-t border-rule">
         <SectionHead kicker={p.casesKicker} title={p.casesTitle} />
         <div className="mt-16 grid md:grid-cols-2 gap-px bg-rule border border-rule">
           {p.cases.map((c, i) => (
@@ -115,7 +115,7 @@ function Page() {
       </Section>
 
       {/* Formats */}
-      <Section className="py-32 md:py-40 border-t border-rule">
+      <Section className="py-16 md:py-20 border-t border-rule">
         <SectionHead kicker={p.formatsKicker} title={p.formatsTitle} />
         <NumberedGrid items={p.formats} cols={2} />
       </Section>

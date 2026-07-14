@@ -22,7 +22,7 @@ export function ContactSection() {
 
   return (
     <section id="contato" className="border-t border-rule">
-      <div className="mx-auto max-w-6xl px-6 py-24 grid md:grid-cols-12 gap-12">
+      <div className="mx-auto max-w-6xl px-6 py-14 grid md:grid-cols-12 gap-12">
         <div className="md:col-span-5">
           <div className="text-[11px] uppercase tracking-[0.3em] text-accent font-mono mb-6">
             {t.contact.kicker}

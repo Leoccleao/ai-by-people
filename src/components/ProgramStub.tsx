@@ -20,7 +20,7 @@ export function ProgramStub({
   const { t } = useI18n();
   return (
     <PageShell>
-      <Section className="pt-24 md:pt-32 pb-40">
+      <Section className="pt-14 md:pt-16 pb-40">
         <Kicker>{kicker}</Kicker>
         <h1 className="font-serif font-normal text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] tracking-[-0.02em] text-ink max-w-4xl">
           {title}

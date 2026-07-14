@@ -49,7 +49,7 @@ export const translations = {
         },
         {
           t: "A escola foi redesenhada sem ser avisada.",
-          b: "Escolas banniram o ChatGPT, depois desistiram. Nem banir nem ignorar é estratégia. A prova de sempre não descreve mais o aluno que a fez.",
+          b: "Escolas baniram o ChatGPT, depois desistiram. Nem banir nem ignorar é estratégia. A prova de sempre não descreve mais o aluno que a fez.",
         },
         {
           t: "A resposta padrão foi conteúdo.",
@@ -345,7 +345,27 @@ export const translations = {
         captureCta: "Quero receber",
         captureToast: "Pronto. Avisamos quando o índice sair.",
       },
+      about: {
+        eyebrow: "Sobre a AI by People",
+        headline: "Somos uma organização sem fins lucrativos que desenvolve pessoas.",
+        sub: "Existimos para formar quem sabe construir com IA — dentro de empresas, escolas, universidades e no ecossistema técnico brasileiro.",
+        modelKicker: "O modelo",
+        modelBody: "Só um dos nossos programas é pago: o Corporate. A receita dele financia integralmente Soberania, Escolas, Formação de Formadores e o Índice. Sem doador definindo currículo. Sem patrocinador editando conclusão.",
+        fundingKicker: "Como nos sustentamos",
+        fundingTitle: "Uma linha paga. Quatro linhas gratuitas.",
+        funding: [
+          { t: "Corporate", b: "Pago. Financia todo o resto." },
+          { t: "Soberania", b: "Gratuito. Formação técnica profunda para profissionais brasileiros." },
+          { t: "Escolas", b: "Trabalho direto com escolas e universidades, sem custo para a instituição parceira nesta fase." },
+          { t: "Formação de Formadores", b: "Escala pelo professor, não pela nossa agenda." },
+          { t: "Índice", b: "Pesquisa aberta, publicada de graça, sem paywall." },
+        ],
+        originKicker: "De onde viemos",
+        originBody: "Nascemos da prática: formando times executivos, organizando comunidades de desenvolvedores e trabalhando com escolas. Método testado em sala, não em slide. É por isso que ele funciona quando a gente vai embora.",
+        cta: "Falar com a gente",
+      },
     },
+
   },
   en: {
     nav: {
@@ -691,7 +711,27 @@ export const translations = {
         captureCta: "Notify me",
         captureToast: "Done. We'll notify you when the index is out.",
       },
+      about: {
+        eyebrow: "About AI by People",
+        headline: "We are a non-profit that develops people.",
+        sub: "We exist to train the people who know how to build with AI — inside companies, schools, universities and the Brazilian technical ecosystem.",
+        modelKicker: "The model",
+        modelBody: "Only one of our programs is paid: Corporate. Its revenue fully funds Sovereignty, Schools, Train the Trainers and the Index. No donor sets the curriculum. No sponsor edits the conclusions.",
+        fundingKicker: "How we're funded",
+        fundingTitle: "One paid line. Four free lines.",
+        funding: [
+          { t: "Corporate", b: "Paid. Funds everything else." },
+          { t: "Sovereignty", b: "Free. Deep technical formation for Brazilian professionals." },
+          { t: "Schools", b: "Direct work with schools and universities, at no cost to the partner institution in this phase." },
+          { t: "Train the Trainers", b: "Scales through the teacher, not through our calendar." },
+          { t: "Index", b: "Open research, published free, no paywall." },
+        ],
+        originKicker: "Where we come from",
+        originBody: "We were born in practice: training executive teams, organizing developer communities and working with schools. A method tested in the room, not on a slide. That is why it keeps working after we leave.",
+        cta: "Get in touch",
+      },
     },
+
   },
 };
 

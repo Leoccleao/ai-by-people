@@ -9,8 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SoberaniaRouteImport } from './routes/soberania'
+import { Route as IndiceRouteImport } from './routes/indice'
+import { Route as FormadoresRouteImport } from './routes/formadores'
+import { Route as EscolasRouteImport } from './routes/escolas'
+import { Route as EcossistemaRouteImport } from './routes/ecossistema'
+import { Route as CorporativoRouteImport } from './routes/corporativo'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SoberaniaRoute = SoberaniaRouteImport.update({
+  id: '/soberania',
+  path: '/soberania',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndiceRoute = IndiceRouteImport.update({
+  id: '/indice',
+  path: '/indice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormadoresRoute = FormadoresRouteImport.update({
+  id: '/formadores',
+  path: '/formadores',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EscolasRoute = EscolasRouteImport.update({
+  id: '/escolas',
+  path: '/escolas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcossistemaRoute = EcossistemaRouteImport.update({
+  id: '/ecossistema',
+  path: '/ecossistema',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CorporativoRoute = CorporativoRouteImport.update({
+  id: '/corporativo',
+  path: '/corporativo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +55,116 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/corporativo': typeof CorporativoRoute
+  '/ecossistema': typeof EcossistemaRoute
+  '/escolas': typeof EscolasRoute
+  '/formadores': typeof FormadoresRoute
+  '/indice': typeof IndiceRoute
+  '/soberania': typeof SoberaniaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/corporativo': typeof CorporativoRoute
+  '/ecossistema': typeof EcossistemaRoute
+  '/escolas': typeof EscolasRoute
+  '/formadores': typeof FormadoresRoute
+  '/indice': typeof IndiceRoute
+  '/soberania': typeof SoberaniaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/corporativo': typeof CorporativoRoute
+  '/ecossistema': typeof EcossistemaRoute
+  '/escolas': typeof EscolasRoute
+  '/formadores': typeof FormadoresRoute
+  '/indice': typeof IndiceRoute
+  '/soberania': typeof SoberaniaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/corporativo'
+    | '/ecossistema'
+    | '/escolas'
+    | '/formadores'
+    | '/indice'
+    | '/soberania'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/corporativo'
+    | '/ecossistema'
+    | '/escolas'
+    | '/formadores'
+    | '/indice'
+    | '/soberania'
+  id:
+    | '__root__'
+    | '/'
+    | '/corporativo'
+    | '/ecossistema'
+    | '/escolas'
+    | '/formadores'
+    | '/indice'
+    | '/soberania'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CorporativoRoute: typeof CorporativoRoute
+  EcossistemaRoute: typeof EcossistemaRoute
+  EscolasRoute: typeof EscolasRoute
+  FormadoresRoute: typeof FormadoresRoute
+  IndiceRoute: typeof IndiceRoute
+  SoberaniaRoute: typeof SoberaniaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/soberania': {
+      id: '/soberania'
+      path: '/soberania'
+      fullPath: '/soberania'
+      preLoaderRoute: typeof SoberaniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/indice': {
+      id: '/indice'
+      path: '/indice'
+      fullPath: '/indice'
+      preLoaderRoute: typeof IndiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/formadores': {
+      id: '/formadores'
+      path: '/formadores'
+      fullPath: '/formadores'
+      preLoaderRoute: typeof FormadoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/escolas': {
+      id: '/escolas'
+      path: '/escolas'
+      fullPath: '/escolas'
+      preLoaderRoute: typeof EscolasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecossistema': {
+      id: '/ecossistema'
+      path: '/ecossistema'
+      fullPath: '/ecossistema'
+      preLoaderRoute: typeof EcossistemaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporativo': {
+      id: '/corporativo'
+      path: '/corporativo'
+      fullPath: '/corporativo'
+      preLoaderRoute: typeof CorporativoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +177,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CorporativoRoute: CorporativoRoute,
+  EcossistemaRoute: EcossistemaRoute,
+  EscolasRoute: EscolasRoute,
+  FormadoresRoute: FormadoresRoute,
+  IndiceRoute: IndiceRoute,
+  SoberaniaRoute: SoberaniaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

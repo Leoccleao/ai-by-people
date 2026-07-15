@@ -73,7 +73,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Organização sem fins lucrativos que desenvolve pessoas num mundo em que a IA está redesenhando o trabalho e a educação. Não com conteúdo — com trabalho real.",
+          "Formamos pessoas capazes de construir com IA — não de apenas assistir. Programas para empresas, escolas, universidades e o ecossistema de desenvolvedores.",
       },
       { name: "author", content: "AI by People" },
       { property: "og:site_name", content: "AI by People" },
@@ -81,9 +81,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "AI by People — IA feita por pessoas" },
       {
         property: "og:description",
-        content: "Formamos pessoas capazes de construir com IA — não de apenas assistir.",
+        content: "Formamos pessoas capazes de construir com IA — não de apenas assistir. Programas para empresas, escolas, universidades e o ecossistema de desenvolvedores.",
       },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "AI by People — IA feita por pessoas" },
+      { name: "twitter:description", content: "Formamos pessoas capazes de construir com IA — não de apenas assistir. Programas para empresas, escolas, universidades e o ecossistema de desenvolvedores." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8e9a7a3d-a7e2-4e4f-9087-bcbf96f7947e/id-preview-9995f01b--2d149c04-7caf-4748-9889-6f6482ca6245.lovable.app-1784036900756.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8e9a7a3d-a7e2-4e4f-9087-bcbf96f7947e/id-preview-9995f01b--2d149c04-7caf-4748-9889-6f6482ca6245.lovable.app-1784036900756.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

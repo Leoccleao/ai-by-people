@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Organização sem fins lucrativos. Formamos pessoas capazes de construir com IA — não de apenas assistir. Programas para empresas, escolas, universidades e o ecossistema de desenvolvedores.",
+          "Formamos pessoas capazes de construir com IA — não de apenas assistir. Programas para empresas, escolas, universidades e o ecossistema de desenvolvedores.",
       },
       { property: "og:url", content: "/" },
     ],

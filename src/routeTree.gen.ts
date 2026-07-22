@@ -18,6 +18,7 @@ import { Route as EscolasRouteImport } from './routes/escolas'
 import { Route as EcossistemaRouteImport } from './routes/ecossistema'
 import { Route as CorporativoRouteImport } from './routes/corporativo'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicAdminLeadsRouteImport } from './routes/api/public/admin.leads'
 
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
@@ -64,6 +65,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicAdminLeadsRoute = ApiPublicAdminLeadsRouteImport.update({
+  id: '/api/public/admin/leads',
+  path: '/api/public/admin/leads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
   '/sobre': typeof SobreRoute
+  '/api/public/admin/leads': typeof ApiPublicAdminLeadsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
   '/sobre': typeof SobreRoute
+  '/api/public/admin/leads': typeof ApiPublicAdminLeadsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
   '/sobre': typeof SobreRoute
+  '/api/public/admin/leads': typeof ApiPublicAdminLeadsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +120,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/soberania'
     | '/sobre'
+    | '/api/public/admin/leads'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/soberania'
     | '/sobre'
+    | '/api/public/admin/leads'
   id:
     | '__root__'
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/soberania'
     | '/sobre'
+    | '/api/public/admin/leads'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +157,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SoberaniaRoute: typeof SoberaniaRoute
   SobreRoute: typeof SobreRoute
+  ApiPublicAdminLeadsRoute: typeof ApiPublicAdminLeadsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/admin/leads': {
+      id: '/api/public/admin/leads'
+      path: '/api/public/admin/leads'
+      fullPath: '/api/public/admin/leads'
+      preLoaderRoute: typeof ApiPublicAdminLeadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -225,17 +245,8 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SoberaniaRoute: SoberaniaRoute,
   SobreRoute: SobreRoute,
+  ApiPublicAdminLeadsRoute: ApiPublicAdminLeadsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

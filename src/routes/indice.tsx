@@ -6,6 +6,7 @@ import { ContactSection } from "@/components/ContactForm";
 import { NumberedGrid, ProgramHero, SectionHead } from "@/components/ProgramParts";
 import { Reveal } from "@/hooks/use-reveal";
 import { useI18n } from "@/i18n/I18nProvider";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/indice")({
   head: () => ({
@@ -100,9 +101,29 @@ function Page() {
 }
 
 function IndexCapture() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const p = t.pages.aiIndex;
   const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email.trim() || submitting) return;
+    setSubmitting(true);
+    const { error } = await supabase.from("leads").insert({
+      source: "index_signup",
+      email: email.trim(),
+      language: lang,
+    });
+    setSubmitting(false);
+    if (error) {
+      console.error("[index] insert failed", error);
+      toast.error(lang === "pt" ? "Não deu para enviar. Tente novamente." : "Could not send. Please try again.");
+      return;
+    }
+    toast.success(p.captureToast);
+    setEmail("");
+  }
 
   return (
     <section className="border-t border-rule">
@@ -117,12 +138,7 @@ function IndexCapture() {
         </Reveal>
         <Reveal delay={180}>
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (!email.trim()) return;
-              toast.success(p.captureToast);
-              setEmail("");
-            }}
+            onSubmit={onSubmit}
             className="mt-10 flex flex-col sm:flex-row gap-3 max-w-xl mx-auto"
           >
             <input
@@ -135,9 +151,10 @@ function IndexCapture() {
             />
             <button
               type="submit"
-              className="border border-ink bg-ink text-paper px-8 py-3.5 text-sm uppercase tracking-[0.2em] hover:bg-transparent hover:text-ink transition"
+              disabled={submitting}
+              className="border border-ink bg-ink text-paper px-8 py-3.5 text-sm uppercase tracking-[0.2em] hover:bg-transparent hover:text-ink transition disabled:opacity-50"
             >
-              {p.captureCta}
+              {submitting ? "…" : p.captureCta}
             </button>
           </form>
         </Reveal>

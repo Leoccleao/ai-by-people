@@ -2,16 +2,34 @@ import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
 import { useI18n } from "@/i18n/I18nProvider";
 import { PROGRAM_ROUTES } from "@/i18n/translations";
+import { supabase } from "@/integrations/supabase/client";
 
 const EMPTY = { name: "", email: "", org: "", program: "", message: "" };
 
 export function ContactSection() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [form, setForm] = useState(EMPTY);
+  const [submitting, setSubmitting] = useState(false);
 
-  function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    console.log("[contact]", form);
+    if (submitting) return;
+    setSubmitting(true);
+    const { error } = await supabase.from("leads").insert({
+      source: "contact",
+      name: form.name || null,
+      email: form.email,
+      organization: form.org || null,
+      program: form.program || null,
+      message: form.message || null,
+      language: lang,
+    });
+    setSubmitting(false);
+    if (error) {
+      console.error("[contact] insert failed", error);
+      toast.error(lang === "pt" ? "Não deu para enviar. Tente novamente." : "Could not send. Please try again.");
+      return;
+    }
     toast.success(t.common.toastSent);
     setForm(EMPTY);
   }
@@ -95,9 +113,10 @@ export function ContactSection() {
           <div className="md:col-span-2 pt-2">
             <button
               type="submit"
-              className="border border-ink px-8 py-3 text-sm uppercase tracking-[0.2em] hover:bg-ink hover:text-paper transition"
+              disabled={submitting}
+              className="border border-ink px-8 py-3 text-sm uppercase tracking-[0.2em] hover:bg-ink hover:text-paper transition disabled:opacity-50"
             >
-              {t.common.send}
+              {submitting ? "…" : t.common.send}
             </button>
           </div>
         </form>

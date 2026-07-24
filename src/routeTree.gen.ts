@@ -18,6 +18,8 @@ import { Route as EscolasRouteImport } from './routes/escolas'
 import { Route as EcossistemaRouteImport } from './routes/ecossistema'
 import { Route as CorporativoRouteImport } from './routes/corporativo'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SoberaniaFormacaoRouteImport } from './routes/soberania_.formacao'
+import { Route as SoberaniaEmpresasRouteImport } from './routes/soberania_.empresas'
 import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
 import { Route as ApiPublicAdminLeadsRouteImport } from './routes/api/public/admin.leads'
 
@@ -66,6 +68,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SoberaniaFormacaoRoute = SoberaniaFormacaoRouteImport.update({
+  id: '/soberania_/formacao',
+  path: '/soberania/formacao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoberaniaEmpresasRoute = SoberaniaEmpresasRouteImport.update({
+  id: '/soberania_/empresas',
+  path: '/soberania/empresas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLeadsRoute = AdminLeadsRouteImport.update({
   id: '/admin/leads',
   path: '/admin/leads',
@@ -88,6 +100,8 @@ export interface FileRoutesByFullPath {
   '/soberania': typeof SoberaniaRoute
   '/sobre': typeof SobreRoute
   '/admin/leads': typeof AdminLeadsRoute
+  '/soberania/empresas': typeof SoberaniaEmpresasRoute
+  '/soberania/formacao': typeof SoberaniaFormacaoRoute
   '/api/public/admin/leads': typeof ApiPublicAdminLeadsRoute
 }
 export interface FileRoutesByTo {
@@ -101,6 +115,8 @@ export interface FileRoutesByTo {
   '/soberania': typeof SoberaniaRoute
   '/sobre': typeof SobreRoute
   '/admin/leads': typeof AdminLeadsRoute
+  '/soberania/empresas': typeof SoberaniaEmpresasRoute
+  '/soberania/formacao': typeof SoberaniaFormacaoRoute
   '/api/public/admin/leads': typeof ApiPublicAdminLeadsRoute
 }
 export interface FileRoutesById {
@@ -115,6 +131,8 @@ export interface FileRoutesById {
   '/soberania': typeof SoberaniaRoute
   '/sobre': typeof SobreRoute
   '/admin/leads': typeof AdminLeadsRoute
+  '/soberania_/empresas': typeof SoberaniaEmpresasRoute
+  '/soberania_/formacao': typeof SoberaniaFormacaoRoute
   '/api/public/admin/leads': typeof ApiPublicAdminLeadsRoute
 }
 export interface FileRouteTypes {
@@ -130,6 +148,8 @@ export interface FileRouteTypes {
     | '/soberania'
     | '/sobre'
     | '/admin/leads'
+    | '/soberania/empresas'
+    | '/soberania/formacao'
     | '/api/public/admin/leads'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -143,6 +163,8 @@ export interface FileRouteTypes {
     | '/soberania'
     | '/sobre'
     | '/admin/leads'
+    | '/soberania/empresas'
+    | '/soberania/formacao'
     | '/api/public/admin/leads'
   id:
     | '__root__'
@@ -156,6 +178,8 @@ export interface FileRouteTypes {
     | '/soberania'
     | '/sobre'
     | '/admin/leads'
+    | '/soberania_/empresas'
+    | '/soberania_/formacao'
     | '/api/public/admin/leads'
   fileRoutesById: FileRoutesById
 }
@@ -170,6 +194,8 @@ export interface RootRouteChildren {
   SoberaniaRoute: typeof SoberaniaRoute
   SobreRoute: typeof SobreRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
+  SoberaniaEmpresasRoute: typeof SoberaniaEmpresasRoute
+  SoberaniaFormacaoRoute: typeof SoberaniaFormacaoRoute
   ApiPublicAdminLeadsRoute: typeof ApiPublicAdminLeadsRoute
 }
 
@@ -238,6 +264,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/soberania_/formacao': {
+      id: '/soberania_/formacao'
+      path: '/soberania/formacao'
+      fullPath: '/soberania/formacao'
+      preLoaderRoute: typeof SoberaniaFormacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/soberania_/empresas': {
+      id: '/soberania_/empresas'
+      path: '/soberania/empresas'
+      fullPath: '/soberania/empresas'
+      preLoaderRoute: typeof SoberaniaEmpresasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/leads': {
       id: '/admin/leads'
       path: '/admin/leads'
@@ -266,6 +306,8 @@ const rootRouteChildren: RootRouteChildren = {
   SoberaniaRoute: SoberaniaRoute,
   SobreRoute: SobreRoute,
   AdminLeadsRoute: AdminLeadsRoute,
+  SoberaniaEmpresasRoute: SoberaniaEmpresasRoute,
+  SoberaniaFormacaoRoute: SoberaniaFormacaoRoute,
   ApiPublicAdminLeadsRoute: ApiPublicAdminLeadsRoute,
 }
 export const routeTree = rootRouteImport

@@ -20,8 +20,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-// Impact numbers are placeholders — to be filled in a later pass.
-const IMPACT_PLACEHOLDERS = ["—", "—", "—", "—"];
 
 function Home() {
   const { t, lang } = useI18n();
@@ -30,11 +28,6 @@ function Home() {
     <PageShell>
       {/* HERO */}
       <Section className="pt-14 md:pt-16 pb-14 md:pb-40">
-        <Reveal>
-          <div className="text-[11px] uppercase tracking-[0.3em] text-accent font-mono mb-10">
-            {t.common.nonprofitEyebrow}
-          </div>
-        </Reveal>
         <Reveal delay={80}>
           <h1 className="font-serif font-normal text-[clamp(2.75rem,7vw,6rem)] leading-[1.02] tracking-[-0.02em] text-ink max-w-5xl">
             {t.home.heroTitle}
@@ -203,35 +196,6 @@ function Home() {
           ))}
         </div>
       </Section>
-
-      {/* IMPACT */}
-      <section className="border-y border-rule">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-          <Reveal>
-            <Kicker>{t.home.impactKicker}</Kicker>
-          </Reveal>
-          <Reveal delay={80}>
-            <h2 className="font-serif text-[clamp(1.75rem,4vw,3.25rem)] leading-tight text-ink max-w-3xl">
-              {t.home.impactTitle}
-            </h2>
-          </Reveal>
-          <div className="mt-16 grid gap-y-12 md:grid-cols-4 gap-x-8">
-            {IMPACT_PLACEHOLDERS.map((n, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <div className="border-t-2 border-ink pt-6">
-                  <div className="font-serif text-[clamp(3rem,6vw,4.5rem)] text-ink leading-none">{n}</div>
-                  <p className="text-ink-muted text-sm mt-4 leading-relaxed">
-                    {t.home.impactLabels[i]}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={200}>
-            <p className="text-ink-muted/70 text-xs mt-14 italic max-w-xl">{t.home.impactNote}</p>
-          </Reveal>
-        </div>
-      </section>
 
       {/* MANIFESTO CLOSER */}
       <section className="py-20 md:py-28">

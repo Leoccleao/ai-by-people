@@ -12,10 +12,10 @@ export const Route = createFileRoute("/sobre")({
       {
         name: "description",
         content:
-          "AI by People é uma organização sem fins lucrativos. O programa Corporate é pago e financia integralmente Soberania, Escolas, Formação de Formadores e o Índice.",
+          "AI by People desenvolve pessoas capazes de construir com IA. O programa Corporate é pago e financia integralmente Soberania, Escolas, Formação de Formadores e o Índice.",
       },
       { property: "og:title", content: "Sobre — AI by People" },
-      { property: "og:description", content: "Uma organização sem fins lucrativos que desenvolve pessoas." },
+      { property: "og:description", content: "Desenvolvemos pessoas capazes de construir com IA." },
       { property: "og:url", content: "/sobre" },
     ],
     links: [{ rel: "canonical", href: "/sobre" }],

@@ -760,16 +760,6 @@ export const translations = {
       programsTitle: "Six fronts. One method.",
       programsSub:
         "From the senior executive to the high-school student. From the teacher to the developer. The immersion changes shape; the commitment is the same.",
-      impactKicker: "Impact",
-      impactTitle: "Numbers we prefer to show honestly.",
-      impactNote:
-        "First institutional edition in the field. Data will be published once the round closes.",
-      impactLabels: [
-        "professionals trained",
-        "companies served",
-        "partner schools",
-        "free cohorts",
-      ],
     },
     contact: {
       kicker: "Contact",

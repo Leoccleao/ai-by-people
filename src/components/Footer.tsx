@@ -13,7 +13,7 @@ export function Footer() {
           </div>
           <p className="text-sm text-ink-muted mt-2 italic">{t.common.tagline}</p>
           <p className="text-xs text-ink-muted mt-8 max-w-sm leading-relaxed">
-            {t.footer.note1} {t.footer.note2}
+            {t.footer.note2}
           </p>
         </div>
         <div className="md:col-span-4">

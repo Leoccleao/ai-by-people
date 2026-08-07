@@ -30,7 +30,6 @@ export const translations = {
       toastSent: "Mensagem enviada. Voltamos em até dois dias úteis.",
       manifestoClose:
         "Nosso produto não é o protótipo. É a pessoa que sai capaz de construir o próximo.",
-      nonprofitEyebrow: "Organização sem fins lucrativos",
       readMore: "Ler mais",
       soon: "Em breve",
     },
@@ -81,16 +80,6 @@ export const translations = {
       programsTitle: "Seis frentes. Um mesmo método.",
       programsSub:
         "Do executivo sênior ao aluno do ensino médio. Do professor ao desenvolvedor. A imersão muda de forma; o compromisso é o mesmo.",
-      impactKicker: "Impacto",
-      impactTitle: "Números que preferimos mostrar honestamente.",
-      impactNote:
-        "Primeira edição institucional em campo. Dados publicados quando fecharmos a rodada.",
-      impactLabels: [
-        "profissionais formados",
-        "empresas atendidas",
-        "escolas parceiras",
-        "turmas gratuitas",
-      ],
     },
     contact: {
       kicker: "Contato",
@@ -100,7 +89,7 @@ export const translations = {
     footer: {
       programs: "Programas",
       contact: "Contato",
-      note1: "AI by People é uma organização sem fins lucrativos.",
+      note1: "AI by People desenvolve pessoas capazes de construir com IA.",
       note2: "O programa Corporate financia os programas gratuitos.",
     },
     programBlurbs: {
@@ -665,7 +654,7 @@ export const translations = {
       },
       about: {
         eyebrow: "Sobre a AI by People",
-        headline: "Somos uma organização sem fins lucrativos que desenvolve pessoas.",
+        headline: "Desenvolvemos pessoas capazes de construir com IA.",
         sub: "Existimos para formar quem sabe construir com IA — dentro de empresas, escolas, universidades e no ecossistema técnico brasileiro.",
         modelKicker: "O modelo",
         modelBody:
@@ -721,7 +710,6 @@ export const translations = {
       toastSent: "Message sent. We'll be back within two business days.",
       manifestoClose:
         "Our product is not the prototype. It's the person who walks out able to build the next one.",
-      nonprofitEyebrow: "A non-profit organization",
       readMore: "Read more",
       soon: "Coming soon",
     },
@@ -791,7 +779,7 @@ export const translations = {
     footer: {
       programs: "Programs",
       contact: "Contact",
-      note1: "AI by People is a non-profit organization.",
+      note1: "AI by People develops people capable of building with AI.",
       note2: "The Corporate program funds the free programs.",
     },
     programBlurbs: {
@@ -1348,7 +1336,7 @@ export const translations = {
       },
       about: {
         eyebrow: "About AI by People",
-        headline: "We are a non-profit that develops people.",
+        headline: "We develop people capable of building with AI.",
         sub: "We exist to train the people who know how to build with AI — inside companies, schools, universities and the Brazilian technical ecosystem.",
         modelKicker: "The model",
         modelBody:

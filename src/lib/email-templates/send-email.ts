@@ -6,13 +6,19 @@ import { TEMPLATES } from './registry'
 // Server-only: reads LOVABLE_API_KEY. Never import from client components.
 
 // Configuration baked in at scaffold time
-const SITE_NAME = "ai-by-people"
+const SITE_NAME = "Roadshow IA"
 // SENDER_DOMAIN is the verified sender subdomain FQDN (e.g., "notify.example.com").
 // It MUST match the subdomain delegated to Lovable's nameservers. NEVER use the root domain.
 const SENDER_DOMAIN = "notify.aibypeople.org"
 // FROM_DOMAIN is the domain shown in the From: header (e.g., "example.com").
-// Can be the root domain when display_from_root is enabled — this is cosmetic only.
-const FROM_DOMAIN = "aibypeople.org"
+// ATENÇÃO — não volte FROM_DOMAIN para o domínio raiz sem antes checar o DNS.
+// _dmarc.aibypeople.org está em p=reject e o SPF do raiz é "include:secureserver.net -all",
+// que não autoriza o Mailgun; não há DKIM publicado em notify.aibypeople.org.
+// Com From: no raiz, o Google recusa a mensagem (nem chega no spam).
+// O subdomínio remetente tem SPF do Mailgun e DMARC próprio p=none, então o From
+// alinhado com ele entrega. Para exibir o raiz, é preciso DKIM publicado
+// (ou display_from_root habilitado no Lovable) — aí sim dá para reverter.
+const FROM_DOMAIN = "notify.aibypeople.org"
 
 export type SendTemplateEmailResult =
   | { sent: true }

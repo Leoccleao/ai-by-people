@@ -12,7 +12,14 @@ import { ReauthenticationEmail } from '@/lib/email-templates/reauthentication'
 const SITE_NAME = "Roadshow IA"
 const SENDER_DOMAIN = "notify.aibypeople.org"
 const ROOT_DOMAIN = "aibypeople.org"
-const FROM_DOMAIN = "aibypeople.org"
+// ATENÇÃO — não volte FROM_DOMAIN para o domínio raiz sem antes checar o DNS.
+// _dmarc.aibypeople.org está em p=reject e o SPF do raiz é "include:secureserver.net -all",
+// que não autoriza o Mailgun; não há DKIM publicado em notify.aibypeople.org.
+// Com From: no raiz, o Google recusa a mensagem (nem chega no spam).
+// O subdomínio remetente tem SPF do Mailgun e DMARC próprio p=none, então o From
+// alinhado com ele entrega. Para exibir o raiz, é preciso DKIM publicado
+// (ou display_from_root habilitado no Lovable) — aí sim dá para reverter.
+const FROM_DOMAIN = "notify.aibypeople.org"
 const SITE_URL = `https://${ROOT_DOMAIN}`
 
 // The SDK handler owns verification, dispatch, and retry semantics; this file

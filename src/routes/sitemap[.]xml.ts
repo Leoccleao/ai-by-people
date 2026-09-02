@@ -3,7 +3,24 @@ import type {} from "@tanstack/react-start";
 
 const BASE_URL = "";
 
-const paths = ["/", "/corporativo", "/ecossistema", "/soberania", "/escolas", "/formadores", "/indice"];
+const paths = [
+  "/",
+  "/corporativo",
+  "/profissionais",
+  "/profissionais/financas",
+  "/profissionais/marketing",
+  "/profissionais/vendas",
+  "/profissionais/estrategia-operacoes",
+  "/profissionais/dados",
+  "/profissionais/juridico",
+  "/soberania",
+  "/soberania/formacao",
+  "/soberania/empresas",
+  "/escolas",
+  "/formadores",
+  "/indice",
+  "/sobre",
+];
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {

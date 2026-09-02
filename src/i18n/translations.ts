@@ -1,3 +1,5 @@
+import { professionalsPt, professionalsEn } from "./professionals";
+
 export type Lang = "pt" | "en";
 
 export const translations = {
@@ -9,6 +11,7 @@ export const translations = {
       contact: "Contato",
       corporate: "Corporate",
       ecosystem: "Ecossistema",
+      professionals: "Formação Profissional",
       sovereignty: "Soberania",
       schools: "Escolas",
       trainers: "Formação de Formadores",
@@ -79,7 +82,7 @@ export const translations = {
       programsKicker: "Programas",
       programsTitle: "Seis frentes. Um mesmo método.",
       programsSub:
-        "Do executivo sênior ao aluno do ensino médio. Do professor ao desenvolvedor. A imersão muda de forma; o compromisso é o mesmo.",
+        "Do executivo sênior ao aluno do ensino médio. E direto com o profissional: upskilling pela função que ele exerce — finanças, marketing, vendas, estratégia e operações, dados, jurídico —, não um curso genérico de IA. A imersão muda de forma; o compromisso é o mesmo.",
     },
     contact: {
       kicker: "Contato",
@@ -97,6 +100,8 @@ export const translations = {
         "Imersão hands-on para times e executivos. Caso real, protótipo funcional, time capaz de manter. É o programa que financia todos os outros.",
       ecosystem:
         "Construímos e organizamos ecossistemas de desenvolvedores para empresas de tecnologia.",
+      professionals:
+        "Upskilling pela função, não pelo assunto. Seis pilares — finanças, marketing, vendas, estratégia e operações, dados e jurídico — com o trabalho real de quem está na sala.",
       sovereignty:
         "ONG que capacita estudantes STEM em engenharia de agentes com IA generativa — conectando academia, desafios reais e empregabilidade global.",
       schools:
@@ -210,6 +215,7 @@ export const translations = {
         ],
         cta: "Solicitar uma proposta",
       },
+      professionals: professionalsPt,
       ecosystem: {
         eyebrow: "Programa Ecossistema · Para empresas de tecnologia",
         headline: "Uma plataforma não vale nada sem quem constrói em cima dela.",
@@ -689,6 +695,7 @@ export const translations = {
       contact: "Contact",
       corporate: "Corporate",
       ecosystem: "Ecosystem",
+      professionals: "Professional Upskilling",
       sovereignty: "Sovereignty",
       schools: "Schools",
       trainers: "Train the Trainers",
@@ -759,7 +766,7 @@ export const translations = {
       programsKicker: "Programs",
       programsTitle: "Six fronts. One method.",
       programsSub:
-        "From the senior executive to the high-school student. From the teacher to the developer. The immersion changes shape; the commitment is the same.",
+        "From the senior executive to the high-school student. And straight to the professional: upskilling by the function they actually perform — finance, marketing, sales, strategy and operations, data, legal — not a generic AI course. The immersion changes shape; the commitment is the same.",
     },
     contact: {
       kicker: "Contact",
@@ -776,6 +783,8 @@ export const translations = {
       corporate:
         "Hands-on immersion for teams and executives. Real use case, working prototype, a team that can maintain it. This is the program that funds all the others.",
       ecosystem: "We build and organize developer ecosystems for technology companies.",
+      professionals:
+        "Upskilling by function, not by subject. Six pillars — finance, marketing, sales, strategy and operations, data and legal — built on the real work of the people in the room.",
       sovereignty:
         "An NGO training STEM students in agent engineering with generative AI — connecting academia, real challenges and global employability.",
       schools:
@@ -885,6 +894,7 @@ export const translations = {
         ],
         cta: "Request a proposal",
       },
+      professionals: professionalsEn,
       ecosystem: {
         eyebrow: "Ecosystem Program · For technology companies",
         headline: "A platform is worth nothing without the people building on top of it.",
@@ -1356,7 +1366,7 @@ export type Translations = typeof translations.pt;
 
 export const PROGRAM_ROUTES = [
   { to: "/corporativo", key: "corporate" as const, num: "01" },
-  { to: "/ecossistema", key: "ecosystem" as const, num: "02" },
+  { to: "/profissionais", key: "professionals" as const, num: "02" },
   { to: "/soberania", key: "sovereignty" as const, num: "03" },
   { to: "/escolas", key: "schools" as const, num: "04" },
   { to: "/formadores", key: "trainers" as const, num: "05" },

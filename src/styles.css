@@ -21,6 +21,16 @@
   --font-serif: "Fraunces", "Source Serif Pro", Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Plataforma VOD — sistema próprio, claro e sans-serif (ver src/platform). */
+  --color-pf-bg: var(--pf-bg);
+  --color-pf-surface: var(--pf-surface);
+  --color-pf-surface-2: var(--pf-surface-2);
+  --color-pf-text: var(--pf-text);
+  --color-pf-muted: var(--pf-muted);
+  --color-pf-faint: var(--pf-faint);
+  --color-pf-border: var(--pf-border);
+  --color-pf-link: var(--pf-link);
 }
 
 :root {
@@ -31,6 +41,15 @@
   --accent: #1B3A5C;
   --rule: #E0DAD0;
   --radius: 0.25rem;
+
+  --pf-bg: #FFFFFF;
+  --pf-surface: #F7F7F8;
+  --pf-surface-2: #EFEFF1;
+  --pf-text: #0D0D0D;
+  --pf-muted: #5B5B60;
+  --pf-faint: #8A8A90;
+  --pf-border: #E4E4E7;
+  --pf-link: #1B49C4;
 }
 
 @layer base {
@@ -54,3 +73,49 @@
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* A plataforma não herda a serifa editorial do site institucional. */
+.pf-scope { background-color: var(--pf-bg); color: var(--pf-text); }
+.pf-scope h1,
+.pf-scope h2,
+.pf-scope h3,
+.pf-scope h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.pf-scope ::selection { background: var(--pf-text); color: var(--pf-bg); }
+
+/* Guia do workshop renderizado a partir de markdown. */
+.pf-prose { color: var(--pf-text); line-height: 1.7; }
+.pf-prose > * + * { margin-top: 1rem; }
+.pf-prose h2 { font-size: 1.375rem; font-weight: 600; margin-top: 2.5rem; scroll-margin-top: 5rem; }
+.pf-prose h3 { font-size: 1.0625rem; font-weight: 600; margin-top: 1.75rem; scroll-margin-top: 5rem; }
+.pf-prose ul, .pf-prose ol { padding-left: 1.25rem; }
+.pf-prose ul { list-style: disc; }
+.pf-prose ol { list-style: decimal; }
+.pf-prose li + li { margin-top: 0.35rem; }
+.pf-prose a { color: var(--pf-link); text-decoration: underline; text-underline-offset: 2px; }
+.pf-prose code {
+  background: var(--pf-surface-2);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+.pf-prose pre {
+  background: var(--pf-surface);
+  border: 1px solid var(--pf-border);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.pf-prose pre code { background: none; padding: 0; font-size: 0.8125rem; }
+.pf-prose blockquote {
+  border-left: 3px solid var(--pf-border);
+  padding-left: 1rem;
+  color: var(--pf-muted);
+}
+.pf-prose table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+.pf-prose th, .pf-prose td { border: 1px solid var(--pf-border); padding: 0.5rem 0.75rem; text-align: left; }
+.pf-prose th { background: var(--pf-surface); font-weight: 600; }

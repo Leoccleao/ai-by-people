@@ -12,15 +12,36 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SoberaniaRouteImport } from './routes/soberania'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ProfissionaisRouteImport } from './routes/profissionais'
+import { Route as PlataformaRouteImport } from './routes/plataforma'
 import { Route as IndiceRouteImport } from './routes/indice'
 import { Route as FormadoresRouteImport } from './routes/formadores'
 import { Route as EscolasRouteImport } from './routes/escolas'
 import { Route as EcossistemaRouteImport } from './routes/ecossistema'
 import { Route as CorporativoRouteImport } from './routes/corporativo'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PlataformaIndexRouteImport } from './routes/plataforma.index'
 import { Route as SoberaniaFormacaoRouteImport } from './routes/soberania_.formacao'
 import { Route as SoberaniaEmpresasRouteImport } from './routes/soberania_.empresas'
+import { Route as ProfissionaisPilarRouteImport } from './routes/profissionais_.$pilar'
+import { Route as PlataformaTermosRouteImport } from './routes/plataforma.termos'
+import { Route as PlataformaPrivacidadeRouteImport } from './routes/plataforma.privacidade'
+import { Route as PlataformaParaSuaEmpresaRouteImport } from './routes/plataforma.para-sua-empresa'
+import { Route as PlataformaOfficeHoursRouteImport } from './routes/plataforma.office-hours'
+import { Route as PlataformaInicioRouteImport } from './routes/plataforma.inicio'
+import { Route as PlataformaHistoriasRouteImport } from './routes/plataforma.historias'
+import { Route as PlataformaEntrarRouteImport } from './routes/plataforma.entrar'
+import { Route as PlataformaCadastroRouteImport } from './routes/plataforma.cadastro'
+import { Route as PlataformaAdminRouteImport } from './routes/plataforma.admin'
 import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
+import { Route as PlataformaAdminIndexRouteImport } from './routes/plataforma.admin.index'
+import { Route as PlataformaLobSlugRouteImport } from './routes/plataforma.lob.$slug'
+import { Route as PlataformaHistoriasNovaRouteImport } from './routes/plataforma.historias_.nova'
+import { Route as PlataformaAdminUsuariosRouteImport } from './routes/plataforma.admin.usuarios'
+import { Route as PlataformaAdminSolicitacoesRouteImport } from './routes/plataforma.admin.solicitacoes'
+import { Route as PlataformaAdminOfficeHoursRouteImport } from './routes/plataforma.admin.office-hours'
+import { Route as PlataformaAdminHistoriasRouteImport } from './routes/plataforma.admin.historias'
+import { Route as PlataformaAdminConteudoRouteImport } from './routes/plataforma.admin.conteudo'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
 import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
@@ -39,6 +60,16 @@ const SoberaniaRoute = SoberaniaRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfissionaisRoute = ProfissionaisRouteImport.update({
+  id: '/profissionais',
+  path: '/profissionais',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlataformaRoute = PlataformaRouteImport.update({
+  id: '/plataforma',
+  path: '/plataforma',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndiceRoute = IndiceRouteImport.update({
@@ -71,6 +102,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlataformaIndexRoute = PlataformaIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PlataformaRoute,
+} as any)
 const SoberaniaFormacaoRoute = SoberaniaFormacaoRouteImport.update({
   id: '/soberania_/formacao',
   path: '/soberania/formacao',
@@ -81,10 +117,104 @@ const SoberaniaEmpresasRoute = SoberaniaEmpresasRouteImport.update({
   path: '/soberania/empresas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfissionaisPilarRoute = ProfissionaisPilarRouteImport.update({
+  id: '/profissionais_/$pilar',
+  path: '/profissionais/$pilar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlataformaTermosRoute = PlataformaTermosRouteImport.update({
+  id: '/termos',
+  path: '/termos',
+  getParentRoute: () => PlataformaRoute,
+} as any)
+const PlataformaPrivacidadeRoute = PlataformaPrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => PlataformaRoute,
+} as any)
+const PlataformaParaSuaEmpresaRoute =
+  PlataformaParaSuaEmpresaRouteImport.update({
+    id: '/para-sua-empresa',
+    path: '/para-sua-empresa',
+    getParentRoute: () => PlataformaRoute,
+  } as any)
+const PlataformaOfficeHoursRoute = PlataformaOfficeHoursRouteImport.update({
+  id: '/office-hours',
+  path: '/office-hours',
+  getParentRoute: () => PlataformaRoute,
+} as any)
+const PlataformaInicioRoute = PlataformaInicioRouteImport.update({
+  id: '/inicio',
+  path: '/inicio',
+  getParentRoute: () => PlataformaRoute,
+} as any)
+const PlataformaHistoriasRoute = PlataformaHistoriasRouteImport.update({
+  id: '/historias',
+  path: '/historias',
+  getParentRoute: () => PlataformaRoute,
+} as any)
+const PlataformaEntrarRoute = PlataformaEntrarRouteImport.update({
+  id: '/entrar',
+  path: '/entrar',
+  getParentRoute: () => PlataformaRoute,
+} as any)
+const PlataformaCadastroRoute = PlataformaCadastroRouteImport.update({
+  id: '/cadastro',
+  path: '/cadastro',
+  getParentRoute: () => PlataformaRoute,
+} as any)
+const PlataformaAdminRoute = PlataformaAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => PlataformaRoute,
+} as any)
 const AdminLeadsRoute = AdminLeadsRouteImport.update({
   id: '/admin/leads',
   path: '/admin/leads',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PlataformaAdminIndexRoute = PlataformaAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PlataformaAdminRoute,
+} as any)
+const PlataformaLobSlugRoute = PlataformaLobSlugRouteImport.update({
+  id: '/lob/$slug',
+  path: '/lob/$slug',
+  getParentRoute: () => PlataformaRoute,
+} as any)
+const PlataformaHistoriasNovaRoute = PlataformaHistoriasNovaRouteImport.update({
+  id: '/historias_/nova',
+  path: '/historias/nova',
+  getParentRoute: () => PlataformaRoute,
+} as any)
+const PlataformaAdminUsuariosRoute = PlataformaAdminUsuariosRouteImport.update({
+  id: '/usuarios',
+  path: '/usuarios',
+  getParentRoute: () => PlataformaAdminRoute,
+} as any)
+const PlataformaAdminSolicitacoesRoute =
+  PlataformaAdminSolicitacoesRouteImport.update({
+    id: '/solicitacoes',
+    path: '/solicitacoes',
+    getParentRoute: () => PlataformaAdminRoute,
+  } as any)
+const PlataformaAdminOfficeHoursRoute =
+  PlataformaAdminOfficeHoursRouteImport.update({
+    id: '/office-hours',
+    path: '/office-hours',
+    getParentRoute: () => PlataformaAdminRoute,
+  } as any)
+const PlataformaAdminHistoriasRoute =
+  PlataformaAdminHistoriasRouteImport.update({
+    id: '/historias',
+    path: '/historias',
+    getParentRoute: () => PlataformaAdminRoute,
+  } as any)
+const PlataformaAdminConteudoRoute = PlataformaAdminConteudoRouteImport.update({
+  id: '/conteudo',
+  path: '/conteudo',
+  getParentRoute: () => PlataformaAdminRoute,
 } as any)
 const LovableEmailTransactionalPreviewRoute =
   LovableEmailTransactionalPreviewRouteImport.update({
@@ -115,12 +245,33 @@ export interface FileRoutesByFullPath {
   '/escolas': typeof EscolasRoute
   '/formadores': typeof FormadoresRoute
   '/indice': typeof IndiceRoute
+  '/plataforma': typeof PlataformaRouteWithChildren
+  '/profissionais': typeof ProfissionaisRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
   '/sobre': typeof SobreRoute
   '/admin/leads': typeof AdminLeadsRoute
+  '/plataforma/admin': typeof PlataformaAdminRouteWithChildren
+  '/plataforma/cadastro': typeof PlataformaCadastroRoute
+  '/plataforma/entrar': typeof PlataformaEntrarRoute
+  '/plataforma/historias': typeof PlataformaHistoriasRoute
+  '/plataforma/inicio': typeof PlataformaInicioRoute
+  '/plataforma/office-hours': typeof PlataformaOfficeHoursRoute
+  '/plataforma/para-sua-empresa': typeof PlataformaParaSuaEmpresaRoute
+  '/plataforma/privacidade': typeof PlataformaPrivacidadeRoute
+  '/plataforma/termos': typeof PlataformaTermosRoute
+  '/profissionais/$pilar': typeof ProfissionaisPilarRoute
   '/soberania/empresas': typeof SoberaniaEmpresasRoute
   '/soberania/formacao': typeof SoberaniaFormacaoRoute
+  '/plataforma/': typeof PlataformaIndexRoute
+  '/plataforma/admin/conteudo': typeof PlataformaAdminConteudoRoute
+  '/plataforma/admin/historias': typeof PlataformaAdminHistoriasRoute
+  '/plataforma/admin/office-hours': typeof PlataformaAdminOfficeHoursRoute
+  '/plataforma/admin/solicitacoes': typeof PlataformaAdminSolicitacoesRoute
+  '/plataforma/admin/usuarios': typeof PlataformaAdminUsuariosRoute
+  '/plataforma/historias/nova': typeof PlataformaHistoriasNovaRoute
+  '/plataforma/lob/$slug': typeof PlataformaLobSlugRoute
+  '/plataforma/admin/': typeof PlataformaAdminIndexRoute
   '/api/public/admin/leads': typeof ApiPublicAdminLeadsRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
@@ -133,12 +284,31 @@ export interface FileRoutesByTo {
   '/escolas': typeof EscolasRoute
   '/formadores': typeof FormadoresRoute
   '/indice': typeof IndiceRoute
+  '/profissionais': typeof ProfissionaisRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
   '/sobre': typeof SobreRoute
   '/admin/leads': typeof AdminLeadsRoute
+  '/plataforma/cadastro': typeof PlataformaCadastroRoute
+  '/plataforma/entrar': typeof PlataformaEntrarRoute
+  '/plataforma/historias': typeof PlataformaHistoriasRoute
+  '/plataforma/inicio': typeof PlataformaInicioRoute
+  '/plataforma/office-hours': typeof PlataformaOfficeHoursRoute
+  '/plataforma/para-sua-empresa': typeof PlataformaParaSuaEmpresaRoute
+  '/plataforma/privacidade': typeof PlataformaPrivacidadeRoute
+  '/plataforma/termos': typeof PlataformaTermosRoute
+  '/profissionais/$pilar': typeof ProfissionaisPilarRoute
   '/soberania/empresas': typeof SoberaniaEmpresasRoute
   '/soberania/formacao': typeof SoberaniaFormacaoRoute
+  '/plataforma': typeof PlataformaIndexRoute
+  '/plataforma/admin/conteudo': typeof PlataformaAdminConteudoRoute
+  '/plataforma/admin/historias': typeof PlataformaAdminHistoriasRoute
+  '/plataforma/admin/office-hours': typeof PlataformaAdminOfficeHoursRoute
+  '/plataforma/admin/solicitacoes': typeof PlataformaAdminSolicitacoesRoute
+  '/plataforma/admin/usuarios': typeof PlataformaAdminUsuariosRoute
+  '/plataforma/historias/nova': typeof PlataformaHistoriasNovaRoute
+  '/plataforma/lob/$slug': typeof PlataformaLobSlugRoute
+  '/plataforma/admin': typeof PlataformaAdminIndexRoute
   '/api/public/admin/leads': typeof ApiPublicAdminLeadsRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
@@ -152,12 +322,33 @@ export interface FileRoutesById {
   '/escolas': typeof EscolasRoute
   '/formadores': typeof FormadoresRoute
   '/indice': typeof IndiceRoute
+  '/plataforma': typeof PlataformaRouteWithChildren
+  '/profissionais': typeof ProfissionaisRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soberania': typeof SoberaniaRoute
   '/sobre': typeof SobreRoute
   '/admin/leads': typeof AdminLeadsRoute
+  '/plataforma/admin': typeof PlataformaAdminRouteWithChildren
+  '/plataforma/cadastro': typeof PlataformaCadastroRoute
+  '/plataforma/entrar': typeof PlataformaEntrarRoute
+  '/plataforma/historias': typeof PlataformaHistoriasRoute
+  '/plataforma/inicio': typeof PlataformaInicioRoute
+  '/plataforma/office-hours': typeof PlataformaOfficeHoursRoute
+  '/plataforma/para-sua-empresa': typeof PlataformaParaSuaEmpresaRoute
+  '/plataforma/privacidade': typeof PlataformaPrivacidadeRoute
+  '/plataforma/termos': typeof PlataformaTermosRoute
+  '/profissionais_/$pilar': typeof ProfissionaisPilarRoute
   '/soberania_/empresas': typeof SoberaniaEmpresasRoute
   '/soberania_/formacao': typeof SoberaniaFormacaoRoute
+  '/plataforma/': typeof PlataformaIndexRoute
+  '/plataforma/admin/conteudo': typeof PlataformaAdminConteudoRoute
+  '/plataforma/admin/historias': typeof PlataformaAdminHistoriasRoute
+  '/plataforma/admin/office-hours': typeof PlataformaAdminOfficeHoursRoute
+  '/plataforma/admin/solicitacoes': typeof PlataformaAdminSolicitacoesRoute
+  '/plataforma/admin/usuarios': typeof PlataformaAdminUsuariosRoute
+  '/plataforma/historias_/nova': typeof PlataformaHistoriasNovaRoute
+  '/plataforma/lob/$slug': typeof PlataformaLobSlugRoute
+  '/plataforma/admin/': typeof PlataformaAdminIndexRoute
   '/api/public/admin/leads': typeof ApiPublicAdminLeadsRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
@@ -172,12 +363,33 @@ export interface FileRouteTypes {
     | '/escolas'
     | '/formadores'
     | '/indice'
+    | '/plataforma'
+    | '/profissionais'
     | '/sitemap.xml'
     | '/soberania'
     | '/sobre'
     | '/admin/leads'
+    | '/plataforma/admin'
+    | '/plataforma/cadastro'
+    | '/plataforma/entrar'
+    | '/plataforma/historias'
+    | '/plataforma/inicio'
+    | '/plataforma/office-hours'
+    | '/plataforma/para-sua-empresa'
+    | '/plataforma/privacidade'
+    | '/plataforma/termos'
+    | '/profissionais/$pilar'
     | '/soberania/empresas'
     | '/soberania/formacao'
+    | '/plataforma/'
+    | '/plataforma/admin/conteudo'
+    | '/plataforma/admin/historias'
+    | '/plataforma/admin/office-hours'
+    | '/plataforma/admin/solicitacoes'
+    | '/plataforma/admin/usuarios'
+    | '/plataforma/historias/nova'
+    | '/plataforma/lob/$slug'
+    | '/plataforma/admin/'
     | '/api/public/admin/leads'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
@@ -190,12 +402,31 @@ export interface FileRouteTypes {
     | '/escolas'
     | '/formadores'
     | '/indice'
+    | '/profissionais'
     | '/sitemap.xml'
     | '/soberania'
     | '/sobre'
     | '/admin/leads'
+    | '/plataforma/cadastro'
+    | '/plataforma/entrar'
+    | '/plataforma/historias'
+    | '/plataforma/inicio'
+    | '/plataforma/office-hours'
+    | '/plataforma/para-sua-empresa'
+    | '/plataforma/privacidade'
+    | '/plataforma/termos'
+    | '/profissionais/$pilar'
     | '/soberania/empresas'
     | '/soberania/formacao'
+    | '/plataforma'
+    | '/plataforma/admin/conteudo'
+    | '/plataforma/admin/historias'
+    | '/plataforma/admin/office-hours'
+    | '/plataforma/admin/solicitacoes'
+    | '/plataforma/admin/usuarios'
+    | '/plataforma/historias/nova'
+    | '/plataforma/lob/$slug'
+    | '/plataforma/admin'
     | '/api/public/admin/leads'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
@@ -208,12 +439,33 @@ export interface FileRouteTypes {
     | '/escolas'
     | '/formadores'
     | '/indice'
+    | '/plataforma'
+    | '/profissionais'
     | '/sitemap.xml'
     | '/soberania'
     | '/sobre'
     | '/admin/leads'
+    | '/plataforma/admin'
+    | '/plataforma/cadastro'
+    | '/plataforma/entrar'
+    | '/plataforma/historias'
+    | '/plataforma/inicio'
+    | '/plataforma/office-hours'
+    | '/plataforma/para-sua-empresa'
+    | '/plataforma/privacidade'
+    | '/plataforma/termos'
+    | '/profissionais_/$pilar'
     | '/soberania_/empresas'
     | '/soberania_/formacao'
+    | '/plataforma/'
+    | '/plataforma/admin/conteudo'
+    | '/plataforma/admin/historias'
+    | '/plataforma/admin/office-hours'
+    | '/plataforma/admin/solicitacoes'
+    | '/plataforma/admin/usuarios'
+    | '/plataforma/historias_/nova'
+    | '/plataforma/lob/$slug'
+    | '/plataforma/admin/'
     | '/api/public/admin/leads'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
@@ -227,10 +479,13 @@ export interface RootRouteChildren {
   EscolasRoute: typeof EscolasRoute
   FormadoresRoute: typeof FormadoresRoute
   IndiceRoute: typeof IndiceRoute
+  PlataformaRoute: typeof PlataformaRouteWithChildren
+  ProfissionaisRoute: typeof ProfissionaisRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SoberaniaRoute: typeof SoberaniaRoute
   SobreRoute: typeof SobreRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
+  ProfissionaisPilarRoute: typeof ProfissionaisPilarRoute
   SoberaniaEmpresasRoute: typeof SoberaniaEmpresasRoute
   SoberaniaFormacaoRoute: typeof SoberaniaFormacaoRoute
   ApiPublicAdminLeadsRoute: typeof ApiPublicAdminLeadsRoute
@@ -260,6 +515,20 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profissionais': {
+      id: '/profissionais'
+      path: '/profissionais'
+      fullPath: '/profissionais'
+      preLoaderRoute: typeof ProfissionaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plataforma': {
+      id: '/plataforma'
+      path: '/plataforma'
+      fullPath: '/plataforma'
+      preLoaderRoute: typeof PlataformaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/indice': {
@@ -304,6 +573,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/plataforma/': {
+      id: '/plataforma/'
+      path: '/'
+      fullPath: '/plataforma/'
+      preLoaderRoute: typeof PlataformaIndexRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
     '/soberania_/formacao': {
       id: '/soberania_/formacao'
       path: '/soberania/formacao'
@@ -318,12 +594,138 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SoberaniaEmpresasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profissionais_/$pilar': {
+      id: '/profissionais_/$pilar'
+      path: '/profissionais/$pilar'
+      fullPath: '/profissionais/$pilar'
+      preLoaderRoute: typeof ProfissionaisPilarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plataforma/termos': {
+      id: '/plataforma/termos'
+      path: '/termos'
+      fullPath: '/plataforma/termos'
+      preLoaderRoute: typeof PlataformaTermosRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/privacidade': {
+      id: '/plataforma/privacidade'
+      path: '/privacidade'
+      fullPath: '/plataforma/privacidade'
+      preLoaderRoute: typeof PlataformaPrivacidadeRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/para-sua-empresa': {
+      id: '/plataforma/para-sua-empresa'
+      path: '/para-sua-empresa'
+      fullPath: '/plataforma/para-sua-empresa'
+      preLoaderRoute: typeof PlataformaParaSuaEmpresaRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/office-hours': {
+      id: '/plataforma/office-hours'
+      path: '/office-hours'
+      fullPath: '/plataforma/office-hours'
+      preLoaderRoute: typeof PlataformaOfficeHoursRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/inicio': {
+      id: '/plataforma/inicio'
+      path: '/inicio'
+      fullPath: '/plataforma/inicio'
+      preLoaderRoute: typeof PlataformaInicioRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/historias': {
+      id: '/plataforma/historias'
+      path: '/historias'
+      fullPath: '/plataforma/historias'
+      preLoaderRoute: typeof PlataformaHistoriasRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/entrar': {
+      id: '/plataforma/entrar'
+      path: '/entrar'
+      fullPath: '/plataforma/entrar'
+      preLoaderRoute: typeof PlataformaEntrarRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/cadastro': {
+      id: '/plataforma/cadastro'
+      path: '/cadastro'
+      fullPath: '/plataforma/cadastro'
+      preLoaderRoute: typeof PlataformaCadastroRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/admin': {
+      id: '/plataforma/admin'
+      path: '/admin'
+      fullPath: '/plataforma/admin'
+      preLoaderRoute: typeof PlataformaAdminRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
     '/admin/leads': {
       id: '/admin/leads'
       path: '/admin/leads'
       fullPath: '/admin/leads'
       preLoaderRoute: typeof AdminLeadsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/plataforma/admin/': {
+      id: '/plataforma/admin/'
+      path: '/'
+      fullPath: '/plataforma/admin/'
+      preLoaderRoute: typeof PlataformaAdminIndexRouteImport
+      parentRoute: typeof PlataformaAdminRoute
+    }
+    '/plataforma/lob/$slug': {
+      id: '/plataforma/lob/$slug'
+      path: '/lob/$slug'
+      fullPath: '/plataforma/lob/$slug'
+      preLoaderRoute: typeof PlataformaLobSlugRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/historias_/nova': {
+      id: '/plataforma/historias_/nova'
+      path: '/historias/nova'
+      fullPath: '/plataforma/historias/nova'
+      preLoaderRoute: typeof PlataformaHistoriasNovaRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/admin/usuarios': {
+      id: '/plataforma/admin/usuarios'
+      path: '/usuarios'
+      fullPath: '/plataforma/admin/usuarios'
+      preLoaderRoute: typeof PlataformaAdminUsuariosRouteImport
+      parentRoute: typeof PlataformaAdminRoute
+    }
+    '/plataforma/admin/solicitacoes': {
+      id: '/plataforma/admin/solicitacoes'
+      path: '/solicitacoes'
+      fullPath: '/plataforma/admin/solicitacoes'
+      preLoaderRoute: typeof PlataformaAdminSolicitacoesRouteImport
+      parentRoute: typeof PlataformaAdminRoute
+    }
+    '/plataforma/admin/office-hours': {
+      id: '/plataforma/admin/office-hours'
+      path: '/office-hours'
+      fullPath: '/plataforma/admin/office-hours'
+      preLoaderRoute: typeof PlataformaAdminOfficeHoursRouteImport
+      parentRoute: typeof PlataformaAdminRoute
+    }
+    '/plataforma/admin/historias': {
+      id: '/plataforma/admin/historias'
+      path: '/historias'
+      fullPath: '/plataforma/admin/historias'
+      preLoaderRoute: typeof PlataformaAdminHistoriasRouteImport
+      parentRoute: typeof PlataformaAdminRoute
+    }
+    '/plataforma/admin/conteudo': {
+      id: '/plataforma/admin/conteudo'
+      path: '/conteudo'
+      fullPath: '/plataforma/admin/conteudo'
+      preLoaderRoute: typeof PlataformaAdminConteudoRouteImport
+      parentRoute: typeof PlataformaAdminRoute
     }
     '/lovable/email/transactional/preview': {
       id: '/lovable/email/transactional/preview'
@@ -356,6 +758,62 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface PlataformaAdminRouteChildren {
+  PlataformaAdminConteudoRoute: typeof PlataformaAdminConteudoRoute
+  PlataformaAdminHistoriasRoute: typeof PlataformaAdminHistoriasRoute
+  PlataformaAdminOfficeHoursRoute: typeof PlataformaAdminOfficeHoursRoute
+  PlataformaAdminSolicitacoesRoute: typeof PlataformaAdminSolicitacoesRoute
+  PlataformaAdminUsuariosRoute: typeof PlataformaAdminUsuariosRoute
+  PlataformaAdminIndexRoute: typeof PlataformaAdminIndexRoute
+}
+
+const PlataformaAdminRouteChildren: PlataformaAdminRouteChildren = {
+  PlataformaAdminConteudoRoute: PlataformaAdminConteudoRoute,
+  PlataformaAdminHistoriasRoute: PlataformaAdminHistoriasRoute,
+  PlataformaAdminOfficeHoursRoute: PlataformaAdminOfficeHoursRoute,
+  PlataformaAdminSolicitacoesRoute: PlataformaAdminSolicitacoesRoute,
+  PlataformaAdminUsuariosRoute: PlataformaAdminUsuariosRoute,
+  PlataformaAdminIndexRoute: PlataformaAdminIndexRoute,
+}
+
+const PlataformaAdminRouteWithChildren = PlataformaAdminRoute._addFileChildren(
+  PlataformaAdminRouteChildren,
+)
+
+interface PlataformaRouteChildren {
+  PlataformaAdminRoute: typeof PlataformaAdminRouteWithChildren
+  PlataformaCadastroRoute: typeof PlataformaCadastroRoute
+  PlataformaEntrarRoute: typeof PlataformaEntrarRoute
+  PlataformaHistoriasRoute: typeof PlataformaHistoriasRoute
+  PlataformaInicioRoute: typeof PlataformaInicioRoute
+  PlataformaOfficeHoursRoute: typeof PlataformaOfficeHoursRoute
+  PlataformaParaSuaEmpresaRoute: typeof PlataformaParaSuaEmpresaRoute
+  PlataformaPrivacidadeRoute: typeof PlataformaPrivacidadeRoute
+  PlataformaTermosRoute: typeof PlataformaTermosRoute
+  PlataformaIndexRoute: typeof PlataformaIndexRoute
+  PlataformaHistoriasNovaRoute: typeof PlataformaHistoriasNovaRoute
+  PlataformaLobSlugRoute: typeof PlataformaLobSlugRoute
+}
+
+const PlataformaRouteChildren: PlataformaRouteChildren = {
+  PlataformaAdminRoute: PlataformaAdminRouteWithChildren,
+  PlataformaCadastroRoute: PlataformaCadastroRoute,
+  PlataformaEntrarRoute: PlataformaEntrarRoute,
+  PlataformaHistoriasRoute: PlataformaHistoriasRoute,
+  PlataformaInicioRoute: PlataformaInicioRoute,
+  PlataformaOfficeHoursRoute: PlataformaOfficeHoursRoute,
+  PlataformaParaSuaEmpresaRoute: PlataformaParaSuaEmpresaRoute,
+  PlataformaPrivacidadeRoute: PlataformaPrivacidadeRoute,
+  PlataformaTermosRoute: PlataformaTermosRoute,
+  PlataformaIndexRoute: PlataformaIndexRoute,
+  PlataformaHistoriasNovaRoute: PlataformaHistoriasNovaRoute,
+  PlataformaLobSlugRoute: PlataformaLobSlugRoute,
+}
+
+const PlataformaRouteWithChildren = PlataformaRoute._addFileChildren(
+  PlataformaRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CorporativoRoute: CorporativoRoute,
@@ -363,10 +821,13 @@ const rootRouteChildren: RootRouteChildren = {
   EscolasRoute: EscolasRoute,
   FormadoresRoute: FormadoresRoute,
   IndiceRoute: IndiceRoute,
+  PlataformaRoute: PlataformaRouteWithChildren,
+  ProfissionaisRoute: ProfissionaisRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SoberaniaRoute: SoberaniaRoute,
   SobreRoute: SobreRoute,
   AdminLeadsRoute: AdminLeadsRoute,
+  ProfissionaisPilarRoute: ProfissionaisPilarRoute,
   SoberaniaEmpresasRoute: SoberaniaEmpresasRoute,
   SoberaniaFormacaoRoute: SoberaniaFormacaoRoute,
   ApiPublicAdminLeadsRoute: ApiPublicAdminLeadsRoute,
@@ -377,3 +838,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

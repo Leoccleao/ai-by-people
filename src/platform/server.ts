@@ -162,52 +162,55 @@ export const adminSetActive = createServerFn({ method: "POST" })
 
 /* ---------------------------------------------------------------- e-mail */
 
-type MailPayload = { to: string[]; subject: string; html: string };
+type MailStatus = "sent" | "skipped" | "failed";
 
 /**
- * Envio transacional via Resend. Sem `RESEND_API_KEY` configurada a plataforma
- * segue funcionando — o convite continua valendo e a pessoa entra pedindo o
- * magic link em /plataforma/entrar. O retorno diz o que aconteceu.
+ * Envio pelo e-mail gerenciado do Lovable (`sendTemplateEmail`), o mesmo canal
+ * dos e-mails de auth — não há provedor externo para configurar. Sem
+ * `LOVABLE_API_KEY` a plataforma segue funcionando: o convite continua valendo
+ * e a pessoa entra pedindo o magic link em /plataforma/entrar.
  */
-async function sendMail(payload: MailPayload): Promise<"sent" | "skipped" | "failed"> {
-  const key = process.env.RESEND_API_KEY;
-  const from = process.env.PLATFORM_MAIL_FROM;
-  if (!key || !from || payload.to.length === 0) return "skipped";
+async function sendTemplate(
+  templateName: string,
+  to: string,
+  templateData: Record<string, unknown>,
+): Promise<MailStatus> {
+  if (!to || !process.env.LOVABLE_API_KEY) return "skipped";
   try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { authorization: `Bearer ${key}`, "content-type": "application/json" },
-      body: JSON.stringify({ from, to: payload.to, subject: payload.subject, html: payload.html }),
-    });
-    if (!res.ok) {
-      console.error("[platform] resend respondeu", res.status, await res.text());
-      return "failed";
-    }
-    return "sent";
+    const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+    const res = await sendTemplateEmail(templateName, to, { templateData });
+    return res.sent ? "sent" : "skipped";
   } catch (err) {
-    console.error("[platform] envio de e-mail falhou", err);
+    console.error(`[platform] envio de '${templateName}' falhou`, err);
     return "failed";
   }
 }
 
+/** Pior status do lote: se um falhou, o lote falhou. */
+function worst(results: MailStatus[]): MailStatus {
+  if (results.length === 0) return "skipped";
+  if (results.includes("failed")) return "failed";
+  if (results.includes("sent")) return "sent";
+  return "skipped";
+}
+
 function platformUrl(path: string) {
-  const base = process.env.PLATFORM_BASE_URL ?? "";
+  const base = process.env.PLATFORM_BASE_URL ?? "https://aibypeople.org";
   return `${base.replace(/\/$/, "")}${path}`;
 }
 
-async function sendInviteEmails(emails: string[]) {
-  if (emails.length === 0) return "skipped" as const;
-  const link = platformUrl("/plataforma/entrar");
-  return sendMail({
-    to: emails,
-    subject: "Seu acesso ao Roadshow IA",
-    html: `
-      <p>Olá,</p>
-      <p>Seu e-mail foi liberado na plataforma do Roadshow de IA: webinars gravados e material follow along por área.</p>
-      <p><a href="${link}">Acessar a plataforma</a> — é só informar este e-mail e você recebe um link de entrada.</p>
-      <p>Colegas da sua empresa com e-mail do mesmo domínio também podem criar conta sozinhos.</p>
-    `,
-  });
+async function sendInviteEmails(emails: string[]): Promise<MailStatus> {
+  if (emails.length === 0) return "skipped";
+  const loginUrl = platformUrl("/plataforma/entrar");
+  const results = await Promise.all(
+    emails.map((email) =>
+      sendTemplate("platform-invite", email, {
+        loginUrl,
+        domain: email.split("@")[1] ?? "",
+      }),
+    ),
+  );
+  return worst(results);
 }
 
 /** Confirmação de inscrição em office hours, com o link da sala. */
@@ -243,16 +246,11 @@ export const sendOfficeHourConfirmation = createServerFn({ method: "POST" })
       timeStyle: "short",
     });
 
-    const status = await sendMail({
-      to: [who.email],
-      subject: `Inscrição confirmada: ${session.title}`,
-      html: `
-        <p>Olá${who.name ? `, ${who.name}` : ""},</p>
-        <p>Sua inscrição em <strong>${session.title}</strong> está confirmada.</p>
-        <p><strong>Quando:</strong> ${when} (horário de Brasília)</p>
-        ${session.meeting_url ? `<p><strong>Sala:</strong> <a href="${session.meeting_url}">${session.meeting_url}</a></p>` : ""}
-        <p>O convite de calendário (.ics) também está disponível na página de Office Hours.</p>
-      `,
+    const status = await sendTemplate("office-hour-confirmation", who.email, {
+      sessionTitle: session.title,
+      when,
+      meetingUrl: session.meeting_url,
+      recipientName: who.name,
     });
     return { status };
   });
@@ -270,18 +268,15 @@ export const notifyWebinarRequest = createServerFn({ method: "POST" })
       .split(",")
       .map((e) => e.trim())
       .filter(Boolean);
-    const status = await sendMail({
-      to,
-      subject: `Novo pedido de webinar — ${data.company || "empresa não informada"}`,
-      html: `
-        <p>Nova solicitação de webinar sob demanda.</p>
-        <ul>
-          <li><strong>Empresa:</strong> ${data.company || "—"}</li>
-          <li><strong>Contato:</strong> ${data.email}</li>
-          <li><strong>Áreas:</strong> ${data.lobs.join(", ") || "—"}</li>
-        </ul>
-        <p><a href="${platformUrl("/plataforma/admin/solicitacoes")}">Ver na área admin</a></p>
-      `,
-    });
-    return { status };
+    const results = await Promise.all(
+      to.map((recipient) =>
+        sendTemplate("webinar-request", recipient, {
+          company: data.company,
+          contactEmail: data.email,
+          areas: data.lobs.join(", "),
+          adminUrl: platformUrl("/plataforma/admin/solicitacoes"),
+        }),
+      ),
+    );
+    return { status: worst(results) };
   });

@@ -1,6 +1,7 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { usePlatformAuth } from "./auth";
+import { CompleteProfile, profileIsComplete } from "./complete-profile";
 import { PlatformShell } from "./shell";
 import { EmptyState, Spinner, buttonClass } from "./ui";
 
@@ -49,6 +50,15 @@ export function Protected({
           title="Sua conta está desativada"
           body="Fale com a equipe organizadora para reativar o acesso."
         />
+      </PlatformShell>
+    );
+  }
+
+  // Convidado que entrou pela tela de login nunca preencheu nome/empresa/área.
+  if (profile && !profileIsComplete(profile)) {
+    return (
+      <PlatformShell>
+        <CompleteProfile />
       </PlatformShell>
     );
   }

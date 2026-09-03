@@ -146,7 +146,7 @@ function LobPage() {
                   </div>
                 </div>
               ) : (
-                <EmptyState title="Vídeo ainda não configurado" />
+                <VideoPlaceholder title={lob.title} />
               )}
 
               <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
@@ -254,6 +254,35 @@ function LobPage() {
             </Card>
           </div>
         </aside>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Ocupa o lugar do player quando a área já está publicada mas a gravação
+ * ainda não subiu — mostra que o webinar existe e está a caminho, em vez de
+ * uma caixa vazia genérica.
+ */
+function VideoPlaceholder({ title }: { title: string }) {
+  return (
+    <div className="relative aspect-video overflow-hidden rounded-xl border border-pf-border bg-gradient-to-br from-[#111214] to-[#232427]">
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/25 bg-white/10">
+          <svg width="20" height="22" viewBox="0 0 20 22" fill="none" aria-hidden>
+            <path
+              d="M2 2.5C2 1.19 3.43.39 4.55 1.06l14.2 8.5c1.1.66 1.1 2.28 0 2.94l-14.2 8.5C3.43 21.66 2 20.86 2 19.55V2.5z"
+              fill="white"
+              fillOpacity="0.85"
+            />
+          </svg>
+        </span>
+        <div>
+          <p className="text-[13px] font-medium text-white/90">{title}</p>
+          <p className="mt-1 text-[12px] text-white/50">
+            Vídeo em breve — a gravação está sendo finalizada.
+          </p>
+        </div>
       </div>
     </div>
   );

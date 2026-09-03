@@ -29,7 +29,7 @@ function Landing() {
     <PlatformShell bare>
       <section className="py-10 md:py-16">
         <p className="text-[13px] font-medium uppercase tracking-wider text-pf-faint">
-          Roadshow de IA
+          IA no Trabalho
         </p>
         <h1 className="mt-3 max-w-3xl text-[clamp(2rem,5vw,3.25rem)] font-semibold leading-[1.1] tracking-tight text-pf-text">
           O conteúdo do workshop, disponível para refazer com os seus dados.

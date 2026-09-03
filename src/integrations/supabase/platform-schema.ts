@@ -1,3 +1,5 @@
+import type { LobGuide } from "@/platform/guide-schema";
+
 /**
  * Tipos das tabelas da plataforma VOD (migration 20260902120000_platform_vod.sql).
  *
@@ -61,6 +63,11 @@ export type Lob = {
   duration_min: number | null;
   tags: string[];
   sort_order: number;
+  /** Cor do ponto da área; com `accent_2` forma o gradiente das capas. */
+  accent: string | null;
+  accent_2: string | null;
+  /** Guia estruturado — ver LobGuide em src/platform/guide-schema.ts. */
+  guide: LobGuide | null;
   created_at: string;
   updated_at: string;
 };
@@ -73,6 +80,10 @@ export type Asset = {
   size_bytes: number | null;
   storage_key: string;
   sort_order: number;
+  /** "Demo 1" — agrupa o arquivo na lista de materiais. */
+  demo_label: string | null;
+  /** Para que serve, em três palavras: "definições de KPI". */
+  hint: string | null;
   created_at: string;
 };
 
@@ -90,6 +101,10 @@ export type LobProgress = {
   user_id: string;
   lob_id: string;
   watched_at: string | null;
+  /** ids de GuideStep já concluídas. */
+  steps_done: string[];
+  /** ids de GuideChecklistItem já marcadas. */
+  checklist_done: string[];
 };
 
 export type OfficeHour = {
@@ -195,10 +210,13 @@ export type PlatformDatabase = {
         | "duration_min"
         | "tags"
         | "sort_order"
+        | "accent"
+        | "accent_2"
+        | "guide"
       >;
-      assets: TableDef<Asset, "content_type" | "size_bytes" | "sort_order">;
+      assets: TableDef<Asset, "content_type" | "size_bytes" | "sort_order" | "demo_label" | "hint">;
       engagement_events: TableDef<EngagementEvent, "lob_id" | "asset_id" | "email_domain">;
-      lob_progress: TableDef<LobProgress, "watched_at">;
+      lob_progress: TableDef<LobProgress, "watched_at" | "steps_done" | "checklist_done">;
       office_hours: TableDef<
         OfficeHour,
         | "lob_id"

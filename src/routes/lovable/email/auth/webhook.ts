@@ -9,7 +9,7 @@ import { EmailChangeEmail } from '@/lib/email-templates/email-change'
 import { ReauthenticationEmail } from '@/lib/email-templates/reauthentication'
 
 // Configuration
-const SITE_NAME = "Roadshow IA"
+const SITE_NAME = "IA no Trabalho"
 const SENDER_DOMAIN = "notify.aibypeople.org"
 const ROOT_DOMAIN = "aibypeople.org"
 // ATENÇÃO — não volte FROM_DOMAIN para o domínio raiz sem antes checar o DNS.
@@ -24,7 +24,15 @@ const SITE_URL = `https://${ROOT_DOMAIN}`
 
 // The SDK handler owns verification, dispatch, and retry semantics; this file
 // owns only the email decisions: subjects, templates, and per-type props.
-const handler = createAuthEmailHandler({
+//
+// Construído sob demanda, e não no carregamento do módulo: createAuthEmailHandler
+// lança quando falta LOVABLE_API_KEY, e como a rota entra no routeTree isso
+// derrubava o app inteiro em dev (500 em toda página), onde a chave não existe.
+let handler: ((request: Request) => Promise<Response>) | null = null
+
+function getHandler() {
+  if (handler) return handler
+  handler = createAuthEmailHandler({
   apiKey: process.env.LOVABLE_API_KEY!,
   from: `${SITE_NAME} <noreply@${FROM_DOMAIN}>`,
   senderDomain: SENDER_DOMAIN,
@@ -81,13 +89,15 @@ const handler = createAuthEmailHandler({
       render: (data) =>
         React.createElement(ReauthenticationEmail, { token: data.token ?? '' }),
     },
-  },
-})
+    },
+  })
+  return handler
+}
 
 export const Route = createFileRoute("/lovable/email/auth/webhook")({
   server: {
     handlers: {
-      POST: ({ request }) => handler(request),
+      POST: ({ request }) => getHandler()(request),
     },
   },
 })

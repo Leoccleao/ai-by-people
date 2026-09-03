@@ -13,10 +13,13 @@ export function Protected({
   children,
   admin = false,
   wide = false,
+  chrome = "sidebar",
 }: {
   children: ReactNode;
   admin?: boolean;
   wide?: boolean;
+  /** `top` para leituras longas (página do workshop); `sidebar` no resto. */
+  chrome?: "sidebar" | "top";
 }) {
   const { loading, session, profile, isAdmin } = usePlatformAuth();
   const navigate = useNavigate();
@@ -57,7 +60,7 @@ export function Protected({
   // Convidado que entrou pela tela de login nunca preencheu nome/empresa/área.
   if (profile && !profileIsComplete(profile)) {
     return (
-      <PlatformShell>
+      <PlatformShell chrome={chrome}>
         <CompleteProfile />
       </PlatformShell>
     );
@@ -65,7 +68,7 @@ export function Protected({
 
   if (admin && !isAdmin) {
     return (
-      <PlatformShell>
+      <PlatformShell chrome={chrome}>
         <EmptyState
           title="Área restrita"
           body="Esta seção é só para administradores da plataforma."
@@ -79,5 +82,9 @@ export function Protected({
     );
   }
 
-  return <PlatformShell wide={wide}>{children}</PlatformShell>;
+  return (
+    <PlatformShell chrome={chrome} wide={wide}>
+      {children}
+    </PlatformShell>
+  );
 }

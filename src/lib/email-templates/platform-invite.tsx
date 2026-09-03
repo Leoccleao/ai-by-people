@@ -19,13 +19,13 @@ interface PlatformInviteEmailProps {
 export const PlatformInviteEmail = ({ loginUrl, domain }: PlatformInviteEmailProps) => (
   <Html lang="pt-BR" dir="ltr">
     <Head />
-    <Preview>Seu acesso à plataforma do Roadshow de IA</Preview>
+    <Preview>Seu acesso à plataforma IA no Trabalho</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>Seu acesso está liberado</Heading>
         <Text style={text}>
-          Você já pode entrar na plataforma do Roadshow de IA: webinar gravado, guia do workshop e
-          todo o material follow along, organizados por área.
+          Você já pode entrar na plataforma IA no Trabalho: webinar gravado, guia do workshop e todo
+          o material follow along, organizados por área.
         </Text>
         <Button style={button} href={loginUrl}>
           Acessar a plataforma
@@ -46,7 +46,7 @@ export default PlatformInviteEmail;
 
 export const template = {
   component: PlatformInviteEmail,
-  subject: "Seu acesso ao Roadshow de IA",
+  subject: "Seu acesso ao IA no Trabalho",
   displayName: "Plataforma · convite",
   previewData: { loginUrl: "https://aibypeople.org/plataforma/entrar", domain: "empresa.com.br" },
 };

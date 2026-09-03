@@ -33,8 +33,8 @@ export function LegalPage({
       </div>
 
       <p className="mt-12 border-t border-pf-border pt-6 text-[12px] leading-relaxed text-pf-faint">
-        Dúvidas sobre este documento ou sobre seus dados: fale com a equipe organizadora do Roadshow
-        de IA.
+        Dúvidas sobre este documento ou sobre seus dados: fale com a equipe organizadora do IA no
+        Trabalho.
       </p>
     </article>
   );

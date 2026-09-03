@@ -119,7 +119,7 @@ export function buildIcs(session: OfficeHour, lob?: Lob | null): string {
   return [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Roadshow IA//Office Hours//PT-BR",
+    "PRODID:-//IA no Trabalho//Office Hours//PT-BR",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",

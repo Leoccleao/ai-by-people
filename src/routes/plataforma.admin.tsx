@@ -21,7 +21,7 @@ function AdminLayout() {
       <div className="space-y-6">
         <PageHeader
           eyebrow="Administração"
-          title="Roadshow IA"
+          title="IA no Trabalho"
           sub="Convidados, conteúdo, sessões e o engajamento agregado por empresa."
         />
         <Tabs items={TABS} />

@@ -3,7 +3,7 @@ import { PlatformShell } from "@/platform/shell";
 import { LegalPage } from "@/platform/legal";
 
 export const Route = createFileRoute("/plataforma/termos")({
-  head: () => ({ meta: [{ title: "Termos de Uso — Roadshow IA" }] }),
+  head: () => ({ meta: [{ title: "Termos de Uso — IA no Trabalho" }] }),
   component: () => (
     <PlatformShell bare>
       <LegalPage
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/plataforma/termos")({
           {
             h: "1. O que é esta plataforma",
             p: [
-              "A plataforma disponibiliza, para participantes dos workshops do Roadshow de IA, o conteúdo de cada área: webinar gravado, guia do workshop e materiais follow along para download.",
+              "A plataforma disponibiliza, para participantes dos workshops do IA no Trabalho, o conteúdo de cada área: webinar gravado, guia do workshop e materiais follow along para download.",
               "O acesso é pessoal e intransferível. Todo o conteúdo fica atrás de login.",
             ],
           },

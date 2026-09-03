@@ -4,7 +4,7 @@ import { PlatformAuthProvider } from "@/platform/auth";
 export const Route = createFileRoute("/plataforma")({
   head: () => ({
     meta: [
-      { title: "Roadshow IA" },
+      { title: "IA no Trabalho" },
       {
         name: "description",
         content:

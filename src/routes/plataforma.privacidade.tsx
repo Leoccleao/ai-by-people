@@ -3,7 +3,7 @@ import { PlatformShell } from "@/platform/shell";
 import { LegalPage } from "@/platform/legal";
 
 export const Route = createFileRoute("/plataforma/privacidade")({
-  head: () => ({ meta: [{ title: "Política de Privacidade — Roadshow IA" }] }),
+  head: () => ({ meta: [{ title: "Política de Privacidade — IA no Trabalho" }] }),
   component: () => (
     <PlatformShell bare>
       <LegalPage
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/plataforma/privacidade")({
           {
             h: "3. Com quem compartilhamos",
             p: [
-              "Com a equipe organizadora do Roadshow de IA e com a OpenAI, para operação do programa e avaliação de histórias de sucesso.",
+              "Com a equipe organizadora do IA no Trabalho e com a OpenAI, para operação do programa e avaliação de histórias de sucesso.",
               "Com fornecedores de infraestrutura necessários à operação (hospedagem, banco de dados, envio de e-mail transacional), estritamente para essa finalidade.",
             ],
           },

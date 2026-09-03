@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { db } from "./db";
-import type { Asset, Lob, OfficeHour } from "@/integrations/supabase/platform-schema";
+import type { Asset, Lob, LobProgress, OfficeHour } from "@/integrations/supabase/platform-schema";
 
 export function useLobs(enabled = true) {
   return useQuery({
@@ -49,14 +49,15 @@ export function useOfficeHours() {
   });
 }
 
+/** Progresso do usuário por área, indexado por lob_id. */
 export function useMyProgress() {
   return useQuery({
     queryKey: ["pf", "progress"],
-    queryFn: async (): Promise<Record<string, string>> => {
-      const { data, error } = await db.from("lob_progress").select("lob_id, watched_at");
+    queryFn: async (): Promise<Record<string, LobProgress>> => {
+      const { data, error } = await db.from("lob_progress").select("*");
       if (error) throw error;
-      const out: Record<string, string> = {};
-      for (const row of data ?? []) if (row.watched_at) out[row.lob_id] = row.watched_at;
+      const out: Record<string, LobProgress> = {};
+      for (const row of (data ?? []) as LobProgress[]) out[row.lob_id] = row;
       return out;
     },
   });

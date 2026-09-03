@@ -25,6 +25,7 @@ import { Route as SoberaniaFormacaoRouteImport } from './routes/soberania_.forma
 import { Route as SoberaniaEmpresasRouteImport } from './routes/soberania_.empresas'
 import { Route as ProfissionaisPilarRouteImport } from './routes/profissionais_.$pilar'
 import { Route as PlataformaTermosRouteImport } from './routes/plataforma.termos'
+import { Route as PlataformaProgressoRouteImport } from './routes/plataforma.progresso'
 import { Route as PlataformaPrivacidadeRouteImport } from './routes/plataforma.privacidade'
 import { Route as PlataformaParaSuaEmpresaRouteImport } from './routes/plataforma.para-sua-empresa'
 import { Route as PlataformaOfficeHoursRouteImport } from './routes/plataforma.office-hours'
@@ -125,6 +126,11 @@ const ProfissionaisPilarRoute = ProfissionaisPilarRouteImport.update({
 const PlataformaTermosRoute = PlataformaTermosRouteImport.update({
   id: '/termos',
   path: '/termos',
+  getParentRoute: () => PlataformaRoute,
+} as any)
+const PlataformaProgressoRoute = PlataformaProgressoRouteImport.update({
+  id: '/progresso',
+  path: '/progresso',
   getParentRoute: () => PlataformaRoute,
 } as any)
 const PlataformaPrivacidadeRoute = PlataformaPrivacidadeRouteImport.update({
@@ -259,6 +265,7 @@ export interface FileRoutesByFullPath {
   '/plataforma/office-hours': typeof PlataformaOfficeHoursRoute
   '/plataforma/para-sua-empresa': typeof PlataformaParaSuaEmpresaRoute
   '/plataforma/privacidade': typeof PlataformaPrivacidadeRoute
+  '/plataforma/progresso': typeof PlataformaProgressoRoute
   '/plataforma/termos': typeof PlataformaTermosRoute
   '/profissionais/$pilar': typeof ProfissionaisPilarRoute
   '/soberania/empresas': typeof SoberaniaEmpresasRoute
@@ -296,6 +303,7 @@ export interface FileRoutesByTo {
   '/plataforma/office-hours': typeof PlataformaOfficeHoursRoute
   '/plataforma/para-sua-empresa': typeof PlataformaParaSuaEmpresaRoute
   '/plataforma/privacidade': typeof PlataformaPrivacidadeRoute
+  '/plataforma/progresso': typeof PlataformaProgressoRoute
   '/plataforma/termos': typeof PlataformaTermosRoute
   '/profissionais/$pilar': typeof ProfissionaisPilarRoute
   '/soberania/empresas': typeof SoberaniaEmpresasRoute
@@ -336,6 +344,7 @@ export interface FileRoutesById {
   '/plataforma/office-hours': typeof PlataformaOfficeHoursRoute
   '/plataforma/para-sua-empresa': typeof PlataformaParaSuaEmpresaRoute
   '/plataforma/privacidade': typeof PlataformaPrivacidadeRoute
+  '/plataforma/progresso': typeof PlataformaProgressoRoute
   '/plataforma/termos': typeof PlataformaTermosRoute
   '/profissionais_/$pilar': typeof ProfissionaisPilarRoute
   '/soberania_/empresas': typeof SoberaniaEmpresasRoute
@@ -377,6 +386,7 @@ export interface FileRouteTypes {
     | '/plataforma/office-hours'
     | '/plataforma/para-sua-empresa'
     | '/plataforma/privacidade'
+    | '/plataforma/progresso'
     | '/plataforma/termos'
     | '/profissionais/$pilar'
     | '/soberania/empresas'
@@ -414,6 +424,7 @@ export interface FileRouteTypes {
     | '/plataforma/office-hours'
     | '/plataforma/para-sua-empresa'
     | '/plataforma/privacidade'
+    | '/plataforma/progresso'
     | '/plataforma/termos'
     | '/profissionais/$pilar'
     | '/soberania/empresas'
@@ -453,6 +464,7 @@ export interface FileRouteTypes {
     | '/plataforma/office-hours'
     | '/plataforma/para-sua-empresa'
     | '/plataforma/privacidade'
+    | '/plataforma/progresso'
     | '/plataforma/termos'
     | '/profissionais_/$pilar'
     | '/soberania_/empresas'
@@ -606,6 +618,13 @@ declare module '@tanstack/react-router' {
       path: '/termos'
       fullPath: '/plataforma/termos'
       preLoaderRoute: typeof PlataformaTermosRouteImport
+      parentRoute: typeof PlataformaRoute
+    }
+    '/plataforma/progresso': {
+      id: '/plataforma/progresso'
+      path: '/progresso'
+      fullPath: '/plataforma/progresso'
+      preLoaderRoute: typeof PlataformaProgressoRouteImport
       parentRoute: typeof PlataformaRoute
     }
     '/plataforma/privacidade': {
@@ -789,6 +808,7 @@ interface PlataformaRouteChildren {
   PlataformaOfficeHoursRoute: typeof PlataformaOfficeHoursRoute
   PlataformaParaSuaEmpresaRoute: typeof PlataformaParaSuaEmpresaRoute
   PlataformaPrivacidadeRoute: typeof PlataformaPrivacidadeRoute
+  PlataformaProgressoRoute: typeof PlataformaProgressoRoute
   PlataformaTermosRoute: typeof PlataformaTermosRoute
   PlataformaIndexRoute: typeof PlataformaIndexRoute
   PlataformaHistoriasNovaRoute: typeof PlataformaHistoriasNovaRoute
@@ -804,6 +824,7 @@ const PlataformaRouteChildren: PlataformaRouteChildren = {
   PlataformaOfficeHoursRoute: PlataformaOfficeHoursRoute,
   PlataformaParaSuaEmpresaRoute: PlataformaParaSuaEmpresaRoute,
   PlataformaPrivacidadeRoute: PlataformaPrivacidadeRoute,
+  PlataformaProgressoRoute: PlataformaProgressoRoute,
   PlataformaTermosRoute: PlataformaTermosRoute,
   PlataformaIndexRoute: PlataformaIndexRoute,
   PlataformaHistoriasNovaRoute: PlataformaHistoriasNovaRoute,

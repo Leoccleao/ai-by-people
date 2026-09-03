@@ -31,6 +31,9 @@
   --color-pf-faint: var(--pf-faint);
   --color-pf-border: var(--pf-border);
   --color-pf-link: var(--pf-link);
+  --color-pf-strong: var(--pf-strong);
+  --color-pf-fainter: var(--pf-fainter);
+  --font-pf: var(--pf-font);
 }
 
 :root {
@@ -42,14 +45,18 @@
   --rule: #E0DAD0;
   --radius: 0.25rem;
 
-  --pf-bg: #FFFFFF;
-  --pf-surface: #F7F7F8;
-  --pf-surface-2: #EFEFF1;
-  --pf-text: #0D0D0D;
-  --pf-muted: #5B5B60;
-  --pf-faint: #8A8A90;
-  --pf-border: #E4E4E7;
+  /* Revamp: papel morno no lugar do cinza frio. */
+  --pf-bg: #FBFAF8;
+  --pf-surface: #F4F3F1;
+  --pf-surface-2: #EDEBE7;
+  --pf-text: #0F0F0E;
+  --pf-strong: #3A3833;
+  --pf-muted: #57544E;
+  --pf-faint: #8A867E;
+  --pf-fainter: #A8A49C;
+  --pf-border: #E4E2DE;
   --pf-link: #1B49C4;
+  --pf-font: 'Instrument Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -75,14 +82,27 @@
 }
 
 /* A plataforma não herda a serifa editorial do site institucional. */
-.pf-scope { background-color: var(--pf-bg); color: var(--pf-text); }
+.pf-scope {
+  background-color: var(--pf-bg);
+  color: var(--pf-text);
+  font-family: var(--pf-font);
+}
 .pf-scope h1,
 .pf-scope h2,
 .pf-scope h3,
 .pf-scope h4 {
-  font-family: var(--font-sans);
+  font-family: var(--pf-font);
   font-weight: 600;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
+}
+
+/* Rótulo mono em caixa alta — o recurso tipográfico que marca o revamp. */
+.pf-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pf-faint);
 }
 .pf-scope ::selection { background: var(--pf-text); color: var(--pf-bg); }
 
